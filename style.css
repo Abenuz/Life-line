@@ -58,3 +58,30 @@ th { color: var(--gold); text-transform: uppercase; letter-spacing: 1px; }
 .exit-btn { background: #333; color: white; border: none; padding: 12px; border-radius: 8px; flex: 1; cursor: pointer; }
 
 footer { padding: 4rem; text-align: center; color: #222; cursor: pointer; font-size: 0.8rem; }
+/* TikTok Button Styling */
+.tiktok-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between icon and text */
+    background-color: #fbbf24; /* Your signature gold color */
+    color: #000000; /* Black text */
+    padding: 10px 20px;
+    border-radius: 50px; /* Makes it a pill shape */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+/* Hover effect: lightens when you hover over it */
+.tiktok-btn:hover {
+    background-color: #ffffff;
+    transform: scale(1.05); /* Makes it slightly bigger */
+}
+
+/* Ensures the SVG icon matches the text color */
+.tiktok-btn svg {
+    fill: currentColor;
+}
