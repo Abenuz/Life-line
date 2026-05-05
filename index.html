@@ -3,50 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Line Fitness Lebu | System</title>
+    <title>Life Line Fitness Lebu | Pro System</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav>
         <div class="logo">LIFE LINE <span>FITNESS</span></div>
-        <a href="tel:0911182141" class="nav-phone">091 118 2141</a>
+        <div class="nav-links">
+            <a href="#plans">Plans</a>
+            <a href="#registration">Join</a>
+        </div>
+        <a href="tel:0911182141" class="nav-phone"><i class="fas fa-phone"></i> 0911182141</a>
     </nav>
 
     <header class="hero">
-        <h1>LEBU BRANCH</h1>
-        <p>GYM • STEAM • KICKBOXING</p>
+        <div class="hero-content">
+            <span class="badge">Lebu Branch - Gidami Center</span>
+            <h1>TRANSFORM <span>YOURSELF</span></h1>
+            <p>Premium Gym, Steam & Kickboxing Training</p>
+            <a href="#registration" class="btn-glow">Start Training Now</a>
+        </div>
     </header>
+
+    <section id="plans">
+        <h2 class="section-title">Membership <span>Plans</span></h2>
+        <div class="price-grid">
+            <div class="price-card">
+                <h3>Gym Only</h3>
+                <div class="price">24/7 Access</div>
+                <ul>
+                    <li>Free Weights</li>
+                    <li>Cardio Zone</li>
+                    <li>Staff Assistance</li>
+                </ul>
+            </div>
+            <div class="price-card featured">
+                <div class="top-label">Popular</div>
+                <h3>All Access</h3>
+                <div class="price">Full Package</div>
+                <ul>
+                    <li>Gym & Kickboxing</li>
+                    <li>Unlimited Steam</li>
+                    <li>Personal Locker</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <section id="registration">
         <div class="container">
-            <h2>Member <span>Registration</span></h2>
+            <h2>Join the <span>Family</span></h2>
             <form id="regForm">
                 <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="name" required>
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="name" placeholder="Abenezer Zerihun" required>
                 </div>
                 <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" id="phone" required>
+                    <label><i class="fas fa-mobile-alt"></i> Phone Number</label>
+                    <input type="tel" id="phone" placeholder="09..." required>
                 </div>
                 <div class="form-group">
-                    <label>Service Plan</label>
+                    <label><i class="fas fa-dumbbell"></i> Service</label>
                     <select id="service">
-                        <option value="Gym Only">Gym Only</option>
+                        <option value="Gym Only">Gym Access Only</option>
                         <option value="Kickboxing">Kickboxing Training</option>
-                        <option value="Steam Room">Steam & Recovery</option>
+                        <option value="Steam">Steam & Recovery</option>
+                        <option value="Full Access">The All-In Package</option>
                     </select>
                 </div>
-                <button type="submit" class="btn">Register</button>
-                <div id="status"></div>
+                <button type="submit" class="btn">Confirm Registration</button>
             </form>
         </div>
     </section>
 
+    <!-- THANK YOU POPUP -->
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2>Thank You!</h2>
+            <p>Your registration is complete. Our team will call you shortly to finalize your membership.</p>
+            <button onclick="closeModal()" class="btn">Got it!</button>
+        </div>
+    </div>
+
     <section id="admin">
-        <button onclick="toggleAdmin()" id="adminBtn" class="admin-access-btn">[ Admin Access ]</button>
+        <button onclick="toggleAdmin()" id="adminBtn" class="admin-access-btn">[ Admin Dashboard ]</button>
         <div id="adminPanel" class="admin-panel" style="display:none;">
-            <h2>Registered Members</h2>
+            <h2>Member Database</h2>
             <div class="table-scroll">
                 <table>
                     <thead>
@@ -54,16 +98,20 @@
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Service</th>
-                            <th>Date Joined</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody id="memberList"></tbody>
                 </table>
             </div>
-            <button onclick="clearData()" class="clear-btn">Clear All Data</button>
+            <button onclick="clearData()" class="clear-btn">Clear Records</button>
         </div>
     </section>
 
+    <footer>
+        <p>&copy; 2026 Life Line Fitness Lebu | Built for Strength</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
-</html>
+</html>>
