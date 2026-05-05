@@ -1,47 +1,46 @@
-let counter = 0;
+let adminClickCount = 0;
 
-// Registration Script
+// Handle Form Submission
 document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const newEntry = {
+    const newMember = {
         name: document.getElementById('userName').value,
         phone: document.getElementById('userPhone').value,
         plan: document.getElementById('userPlan').value
     };
 
-    // Save to LocalStorage
-    let data = JSON.parse(localStorage.getItem('gymLeads')) || [];
-    data.push(newEntry);
-    localStorage.setItem('gymLeads', JSON.stringify(data));
+    // Save Data
+    let db = JSON.parse(localStorage.getItem('lebuGymLeads')) || [];
+    db.push(newMember);
+    localStorage.setItem('lebuGymLeads', JSON.stringify(db));
 
-    // Success Alert
     alert("Thanks for registering, we will call you.");
     this.reset();
 });
 
-// Admin Trigger: Click footer 5 times
+// Secret Admin Access (5 clicks on footer)
 document.getElementById('footerTrigger').addEventListener('click', function() {
-    counter++;
-    if (counter >= 5) {
-        counter = 0;
-        let pass = prompt("Admin Password Required:");
-        if (pass === "admin123") {
-            showAdmin();
+    adminClickCount++;
+    if (adminClickCount >= 5) {
+        adminClickCount = 0;
+        let p = prompt("Password:");
+        if (p === "admin123") {
+            openAdmin();
         } else {
-            alert("Access Denied");
+            alert("Wrong Password");
         }
     }
 });
 
-function showAdmin() {
+function openAdmin() {
     document.getElementById('adminArea').style.display = "flex";
-    const data = JSON.parse(localStorage.getItem('gymLeads')) || [];
-    const listBody = document.getElementById('memberList');
+    const data = JSON.parse(localStorage.getItem('lebuGymLeads')) || [];
+    const list = document.getElementById('memberList');
     
-    listBody.innerHTML = data.length > 0 
+    list.innerHTML = data.length > 0 
         ? data.map(m => `<tr><td>${m.name}</td><td>${m.phone}</td><td>${m.plan}</td></tr>`).join('')
-        : "<tr><td colspan='3' style='text-align:center;'>No registrations yet.</td></tr>";
+        : "<tr><td colspan='3' style='text-align:center; padding:20px;'>No members yet.</td></tr>";
 }
 
 function closeAdmin() {
@@ -50,7 +49,7 @@ function closeAdmin() {
 
 function clearLeads() {
     if(confirm("Erase all data?")) {
-        localStorage.removeItem('gymLeads');
-        showAdmin();
+        localStorage.removeItem('lebuGymLeads');
+        openAdmin();
     }
 }
