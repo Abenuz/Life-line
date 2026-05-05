@@ -5,109 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life Line Fitness | Lebu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root { --gold: #fbbf24; --black: #000; --deep: #0a0a0a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: var(--black); color: white; scroll-behavior: smooth; overflow-x: hidden; }
+
+        /* Navbar */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: rgba(0,0,0,0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #1a1a1a; }
+        .logo-text { font-weight: bold; letter-spacing: 1px; }
+        .logo-text span { color: var(--gold); }
+        .nav-right a { color: #eee; text-decoration: none; margin-left: 1.5rem; font-size: 0.9rem; }
+        .phone-link { background: var(--gold); color: #000 !important; padding: 0.5rem 1.2rem; border-radius: 50px; font-weight: 800; }
+
+        /* Video Feed */
+        .tiktok-section { height: 85vh; display: flex; justify-content: center; align-items: center; padding: 2rem 0; }
+        .tiktok-card { width: 340px; height: 580px; background: #111; border-radius: 20px; position: relative; border: 1px solid #222; overflow: hidden; }
+        .video-overlay { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #333; }
+        .play-btn { font-size: 4rem; color: #444; margin-bottom: 1rem; }
+        .sidebar-actions { position: absolute; right: 15px; bottom: 100px; display: flex; flex-direction: column; gap: 1.2rem; text-align: center; }
+        .stat i { font-size: 1.5rem; color: #fff; cursor: pointer; }
+        .stat span { font-size: 0.7rem; display: block; margin-top: 2px; }
+        .video-details { position: absolute; bottom: 25px; left: 15px; width: 85%; }
+        .username { font-weight: bold; margin-bottom: 4px; }
+        .description { font-size: 0.8rem; color: #bbb; line-height: 1.4; }
+
+        /* Pricing */
+        .pricing-area { padding: 4rem 5%; background: var(--deep); text-align: center; }
+        .title { font-size: 2rem; margin-bottom: 3rem; text-transform: uppercase; }
+        .title span { color: var(--gold); }
+        .cards-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+        .price-card { background: #111; padding: 3rem 2rem; border-radius: 20px; width: 300px; border: 1px solid #222; position: relative; }
+        .premium { border: 2px solid var(--gold); }
+        .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 0.3rem 1rem; border-radius: 20px; font-weight: bold; font-size: 0.75rem; }
+        .cost { font-size: 3rem; font-weight: 800; margin: 1.5rem 0; }
+        .cost span { font-size: 0.9rem; color: #555; }
+        .btn { display: block; padding: 0.8rem; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 1rem; }
+        .outline { border: 1px solid var(--gold); color: var(--gold); }
+        .fill { background: var(--gold); color: #000; }
+
+        /* Form */
+        .register-section { padding: 4rem 5%; display: flex; justify-content: center; }
+        .form-container { background: #111; padding: 2.5rem; border-radius: 20px; width: 100%; max-width: 400px; border: 1px solid #222; }
+        input, select { width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #000; border: 1px solid #333; color: white; border-radius: 8px; }
+        button { width: 100%; padding: 1rem; background: var(--gold); border: none; font-weight: bold; border-radius: 8px; cursor: pointer; }
+
+        footer { padding: 3rem; text-align: center; color: #222; font-size: 0.8rem; cursor: pointer; }
+    </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">
-            <div class="logo-icon">LL</div>
-            <div class="logo-text">LIFE LINE <span>FITNESS</span></div>
-        </div>
+        <div class="logo-text">LL LIFE LINE <span>FITNESS</span></div>
         <div class="nav-right">
-            <a href="#gallery">Gallery</a>
-            <a href="#plans">Plans</a>
             <a href="tel:0911182141" class="phone-link"><i class="fas fa-phone"></i> 0911182141</a>
         </div>
     </nav>
 
-    <!-- TikTok Feed Section -->
     <section class="tiktok-section">
-        <div class="video-container">
-            <div class="tiktok-card">
-                <div class="video-overlay">
-                    <i class="fas fa-play-circle play-btn"></i>
-                    <p class="status-text">Workout Motivation</p>
-                </div>
-                <div class="sidebar-actions">
-                    <div class="stat"><i class="fas fa-heart"></i><span>1.2k</span></div>
-                    <div class="stat"><i class="fas fa-comment-dots"></i><span>45</span></div>
-                    <div class="stat"><i class="fas fa-share"></i></div>
-                </div>
-                <div class="video-details">
-                    <p class="username">@lifeline_fitness_lebu</p>
-                    <p class="description">Level up your game at Gidami Business Center! #EthiopiaGym #Fitness</p>
-                </div>
+        <div class="tiktok-card">
+            <div class="video-overlay"><i class="fas fa-play-circle play-btn"></i></div>
+            <div class="sidebar-actions">
+                <div class="stat"><i class="fas fa-heart"></i><span>1.2k</span></div>
+                <div class="stat"><i class="fas fa-comment-dots"></i><span>45</span></div>
+                <div class="stat"><i class="fas fa-share"></i></div>
+            </div>
+            <div class="video-details">
+                <p class="username">@lifeline_fitness_lebu</p>
+                <p class="description">Level up your game at Gidami Business Center! #EthiopiaGym</p>
             </div>
         </div>
     </section>
 
-    <!-- Gym Gallery Section -->
-    <section id="gallery" class="gym-gallery">
-        <h2 class="title">Our <span>Gym</span></h2>
-        <div class="grid-layout">
-            <div class="gym-card" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600')"></div>
-            <div class="gym-card" style="background-image: url('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=600')"></div>
-            <div class="gym-card" style="background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=600')"></div>
-            <div class="gym-card empty">Coming Soon</div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="plans" class="pricing-area">
+    <section class="pricing-area">
         <h2 class="title">Pricing <span>Plans</span></h2>
         <div class="cards-wrapper">
             <div class="price-card">
                 <h3>Monthly Gym</h3>
                 <div class="cost">5,000 <span>ETB</span></div>
-                <a href="#join" class="outline-btn">Join Now</a>
+                <a href="#join" class="btn outline">Join Now</a>
             </div>
             <div class="price-card premium">
                 <div class="badge">Best Value</div>
                 <h3>Pro Athlete</h3>
                 <div class="cost">6,500 <span>ETB</span></div>
-                <a href="#join" class="fill-btn">Join Now</a>
+                <a href="#join" class="btn fill">Join Now</a>
             </div>
         </div>
     </section>
 
-    <!-- Registration Section -->
     <section id="join" class="register-section">
         <div class="form-container">
-            <h2>Join the <span>Family</span></h2>
+            <h2 style="margin-bottom: 1.5rem;">Join the <span>Family</span></h2>
             <form id="leadForm">
                 <input type="text" id="name" placeholder="Full Name" required>
                 <input type="tel" id="phone" placeholder="Phone Number" required>
                 <select id="plan">
-                    <option value="Monthly (5000)">Monthly Gym - 5,000 ETB</option>
-                    <option value="Pro (6500)">Pro Athlete - 6,500 ETB</option>
+                    <option value="Monthly">Monthly Gym - 5,000 ETB</option>
+                    <option value="Pro">Pro Athlete - 6,500 ETB</option>
                 </select>
                 <button type="submit">Submit Registration</button>
             </form>
         </div>
     </section>
 
-    <!-- Hidden Admin Panel -->
-    <div id="adminPanel" class="modal-bg" style="display:none;">
-        <div class="modal-content">
-            <h3>New Member Registrations</h3>
-            <div class="table-container">
-                <table id="dataTable">
-                    <thead><tr><th>Name</th><th>Phone</th><th>Selected Plan</th></tr></thead>
-                    <tbody id="tableBody"></tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button onclick="deleteAll()" class="danger-btn">Clear All</button>
-                <button onclick="closeModal()" class="exit-btn">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <footer id="secretTrigger">
+    <footer onclick="checkAdmin()">
         <p>&copy; 2026 Life Line Fitness Lebu</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        let clicks = 0;
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let data = JSON.parse(localStorage.getItem('leads')) || [];
+            data.push({
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                plan: document.getElementById('plan').value
+            });
+            localStorage.setItem('leads', JSON.stringify(data));
+            alert("Sent! We will call you.");
+            this.reset();
+        });
+
+        function checkAdmin() {
+            clicks++;
+            if(clicks >= 5) {
+                clicks = 0;
+                if(prompt("Password:") === "admin123") {
+                    let data = JSON.parse(localStorage.getItem('leads')) || [];
+                    alert(JSON.stringify(data, null, 2));
+                }
+            }
+        }
+    </script>
 </body>
 </html>
