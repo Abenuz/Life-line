@@ -1,35 +1,59 @@
-document.getElementById('regForm').addEventListener('submit', function(e) {
+let clickCount = 0;
+
+// Handle Registration
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
     e.preventDefault();
+
     const member = {
         name: document.getElementById('name').value,
         phone: document.getElementById('phone').value,
-        service: document.getElementById('service').value,
-        date: new Date().toLocaleDateString()
+        plan: document.getElementById('service').value
     };
-    let members = JSON.parse(localStorage.getItem('gym_db')) || [];
-    members.push(member);
-    localStorage.setItem('gym_db', JSON.stringify(members));
-    document.getElementById('thankYouModal').style.display = 'block';
+
+    // Save to LocalStorage
+    let list = JSON.parse(localStorage.getItem('gymDB')) || [];
+    list.push(member);
+    localStorage.setItem('gymDB', JSON.stringify(list));
+
+    // Show Success Modal
+    document.getElementById('modal').style.display = 'block';
     this.reset();
-    loadMembers();
+    updateAdminTable();
 });
 
-function closeModal() { document.getElementById('thankYouModal').style.display = 'none'; }
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
 
-function toggleAdmin() {
-    if (prompt("Admin Password:") === "admin123") {
-        document.getElementById('adminPanel').style.display = "block";
-        document.getElementById('adminBtn').style.display = "none";
-        loadMembers();
+// Hidden Admin Logic: Click the footer 5 times
+function adminTrigger() {
+    clickCount++;
+    if (clickCount >= 5) {
+        clickCount = 0;
+        let pass = prompt("Enter Admin Password:");
+        if (pass === "admin123") {
+            document.getElementById('adminPanel').style.display = "block";
+            updateAdminTable();
+            window.scrollTo(0, document.body.scrollHeight);
+        }
     }
 }
 
-function loadMembers() {
-    const list = document.getElementById('memberList');
-    const members = JSON.parse(localStorage.getItem('gym_db')) || [];
-    list.innerHTML = members.map(m => `<tr><td>${m.name}</td><td>${m.phone}</td><td>${m.service}</td><td>${m.date}</td></tr>`).join('');
+function updateAdminTable() {
+    const list = JSON.parse(localStorage.getItem('gymDB')) || [];
+    const body = document.getElementById('tableBody');
+    body.innerHTML = list.map(m => `
+        <tr style="border-bottom: 1px solid #333;">
+            <td style="padding:10px;">${m.name}</td>
+            <td style="padding:10px;">${m.phone}</td>
+            <td style="padding:10px;">${m.plan}</td>
+        </tr>
+    `).join('');
 }
 
 function clearData() {
-    if(confirm("Erase all?")) { localStorage.removeItem('gym_db'); loadMembers(); }
+    if(confirm("Erase all records?")) {
+        localStorage.removeItem('gymDB');
+        updateAdminTable();
+    }
 }
