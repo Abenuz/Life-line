@@ -1,30 +1,56 @@
-let clickCount = 0;
+let secretCounter = 0;
 
 // Handle Registration
-document.getElementById('registrationForm').addEventListener('submit', function(e) {
+document.getElementById('gymForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const member = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        plan: document.getElementById('service').value
+    const newMember = {
+        name: document.getElementById('fullName').value,
+        phone: document.getElementById('phoneNumber').value,
+        plan: document.getElementById('selectedPlan').value
     };
 
-    // Save to LocalStorage
-    let list = JSON.parse(localStorage.getItem('gymDB')) || [];
-    list.push(member);
-    localStorage.setItem('gymDB', JSON.stringify(list));
+    // Save to Local Storage (Client-side DB)
+    let members = JSON.parse(localStorage.getItem('gymLeads')) || [];
+    members.push(newMember);
+    localStorage.setItem('gymLeads', JSON.stringify(members));
 
-    // Show Success Modal
-    document.getElementById('modal').style.display = 'block';
+    alert("Registration Successful! Our team will contact you shortly.");
     this.reset();
-    updateAdminTable();
+    updateAdminDisplay();
 });
 
-function closeModal() {
-    document.getElementById('modal').style.display = 'none';
+// Admin Panel Access Logic
+function handleAdminTrigger() {
+    secretCounter++;
+    if (secretCounter >= 5) {
+        secretCounter = 0;
+        let pass = prompt("Enter Admin Password:");
+        if (pass === "admin123") {
+            document.getElementById('adminPanel').style.display = "block";
+            updateAdminDisplay();
+            window.scrollTo(0, document.body.scrollHeight);
+        } else {
+            alert("Wrong password!");
+        }
+    }
 }
 
+function updateAdminDisplay() {
+    const members = JSON.parse(localStorage.getItem('gymLeads')) || [];
+    const tableBody = document.getElementById('memberData');
+    tableBody.innerHTML = members.map(m => `
+        <tr>
+            <td>${m.name}</td>
+            <td>${m.phone}</td>
+            <td>${m.plan}</td>
+        </tr>
+    `).join('');
+}
+
+function logoutAdmin() {
+    document.getElementById('adminPanel').style.display = "none";
+}
 // Hidden Admin Logic: Click the footer 5 times
 function adminTrigger() {
     clickCount++;
