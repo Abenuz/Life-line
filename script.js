@@ -1,55 +1,54 @@
-let secretCounter = 0;
+let clickTracker = 0;
 
-// Registration Handling
-document.getElementById('gymRegForm').addEventListener('submit', function(e) {
+// Save Form Data
+document.getElementById('leadForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const data = {
-        name: document.getElementById('custName').value,
-        phone: document.getElementById('custPhone').value,
-        plan: document.getElementById('custPlan').value
+    const entry = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        plan: document.getElementById('plan').value
     };
 
-    // Store in LocalStorage
-    let existingData = JSON.parse(localStorage.getItem('memberLeads')) || [];
-    existingData.push(data);
-    localStorage.setItem('memberLeads', JSON.stringify(existingData));
+    let data = JSON.parse(localStorage.getItem('gymLeads')) || [];
+    data.push(entry);
+    localStorage.setItem('gymLeads', JSON.stringify(data));
 
-    alert("Thanks for registering, we will call you.");
+    alert("Success! We will contact you soon.");
     this.reset();
 });
 
-// Admin Panel Access (5 Clicks on Footer)
-document.getElementById('adminAccess').addEventListener('click', function() {
-    secretCounter++;
-    if (secretCounter >= 5) {
-        secretCounter = 0;
-        let p = prompt("Enter Admin Password:");
-        if (p === "admin123") {
-            displayAdmin();
+// Secret Admin Unlock
+document.getElementById('secretTrigger').addEventListener('click', function() {
+    clickTracker++;
+    if (clickTracker >= 5) {
+        clickTracker = 0;
+        const pass = prompt("Access Key:");
+        if (pass === "admin123") {
+            showAdmin();
         } else {
-            alert("Unauthorized Access");
+            alert("Denied.");
         }
     }
 });
 
-function displayAdmin() {
+function showAdmin() {
     document.getElementById('adminPanel').style.display = "flex";
-    const data = JSON.parse(localStorage.getItem('memberLeads')) || [];
-    const tableBody = document.getElementById('adminData');
+    const data = JSON.parse(localStorage.getItem('gymLeads')) || [];
+    const body = document.getElementById('tableBody');
     
-    tableBody.innerHTML = data.length > 0 
-        ? data.map(m => `<tr><td>${m.name}</td><td>${m.phone}</td><td>${m.plan}</td></tr>`).join('')
-        : "<tr><td colspan='3' style='text-align:center; padding:20px;'>No members found.</td></tr>";
+    body.innerHTML = data.length > 0 
+        ? data.map(i => `<tr><td>${i.name}</td><td>${i.phone}</td><td>${i.plan}</td></tr>`).join('')
+        : "<tr><td colspan='3' style='text-align:center; padding:30px;'>No entries found.</td></tr>";
 }
 
-function hideAdmin() {
+function closeModal() {
     document.getElementById('adminPanel').style.display = "none";
 }
 
-function clearData() {
-    if(confirm("Confirm: Delete all registration data?")) {
-        localStorage.removeItem('memberLeads');
-        displayAdmin();
+function deleteAll() {
+    if(confirm("Permanently delete all records?")) {
+        localStorage.removeItem('gymLeads');
+        showAdmin();
     }
 }
