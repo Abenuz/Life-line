@@ -1,32 +1,60 @@
-let adminClicks = 0;
+let clickCount = 0;
 
+// Registration Handling
 document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    const lead = {
-        name: document.getElementById('adminName').value,
-        phone: document.getElementById('adminPhone').value,
-        date: new Date().toLocaleDateString()
+
+    const member = {
+        name: document.getElementById('userName').value,
+        phone: document.getElementById('userPhone').value,
+        plan: document.getElementById('userPlan').value
     };
 
-    let data = JSON.parse(localStorage.getItem('leads')) || [];
-    data.push(lead);
-    localStorage.setItem('leads', JSON.stringify(data));
+    // Save to Local Storage
+    let list = JSON.parse(localStorage.getItem('gymData')) || [];
+    list.push(member);
+    localStorage.setItem('gymData', JSON.stringify(list));
 
-    alert(`Thank you ${lead.name}! We will call you soon.`);
+    // Success Message
+    alert("Thanks for registering, we will call you.");
     this.reset();
 });
 
-// Admin access: Click the footer 5 times
-function checkAdmin() {
-    adminClicks++;
-    if(adminClicks >= 5) {
-        adminClicks = 0;
-        let pass = prompt("Admin Password:");
-        if(pass === "1234") {
-            const data = JSON.parse(localStorage.getItem('leads')) || [];
-            console.table(data);
-            alert("Member data printed to console. Check 'Inspect' -> 'Console'.");
+// Admin Access Trigger (Click footer 5 times)
+document.getElementById('adminTrigger').addEventListener('click', function() {
+    clickCount++;
+    if (clickCount >= 5) {
+        clickCount = 0;
+        let pass = prompt("Enter Admin Password:");
+        if (pass === "admin123") {
+            openAdmin();
+        } else {
+            alert("Wrong Password");
         }
+    }
+});
+
+function openAdmin() {
+    document.getElementById('adminArea').style.display = "flex";
+    const list = JSON.parse(localStorage.getItem('gymData')) || [];
+    const tableBody = document.getElementById('memberList');
+    
+    tableBody.innerHTML = list.map(m => `
+        <tr>
+            <td>${m.name}</td>
+            <td>${m.phone}</td>
+            <td>${m.plan}</td>
+        </tr>
+    `).join('');
+}
+
+function closeAdmin() {
+    document.getElementById('adminArea').style.display = "none";
+}
+
+function clearLeads() {
+    if(confirm("Erase all member data?")) {
+        localStorage.removeItem('gymData');
+        openAdmin();
     }
 }
