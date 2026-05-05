@@ -1,55 +1,55 @@
-let adminClickCount = 0;
+let secretCounter = 0;
 
-// Handle Form Submission
-document.getElementById('regForm').addEventListener('submit', function(e) {
+// Registration Handling
+document.getElementById('gymRegForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const newMember = {
-        name: document.getElementById('userName').value,
-        phone: document.getElementById('userPhone').value,
-        plan: document.getElementById('userPlan').value
+    const data = {
+        name: document.getElementById('custName').value,
+        phone: document.getElementById('custPhone').value,
+        plan: document.getElementById('custPlan').value
     };
 
-    // Save Data
-    let db = JSON.parse(localStorage.getItem('lebuGymLeads')) || [];
-    db.push(newMember);
-    localStorage.setItem('lebuGymLeads', JSON.stringify(db));
+    // Store in LocalStorage
+    let existingData = JSON.parse(localStorage.getItem('memberLeads')) || [];
+    existingData.push(data);
+    localStorage.setItem('memberLeads', JSON.stringify(existingData));
 
     alert("Thanks for registering, we will call you.");
     this.reset();
 });
 
-// Secret Admin Access (5 clicks on footer)
-document.getElementById('footerTrigger').addEventListener('click', function() {
-    adminClickCount++;
-    if (adminClickCount >= 5) {
-        adminClickCount = 0;
-        let p = prompt("Password:");
+// Admin Panel Access (5 Clicks on Footer)
+document.getElementById('adminAccess').addEventListener('click', function() {
+    secretCounter++;
+    if (secretCounter >= 5) {
+        secretCounter = 0;
+        let p = prompt("Enter Admin Password:");
         if (p === "admin123") {
-            openAdmin();
+            displayAdmin();
         } else {
-            alert("Wrong Password");
+            alert("Unauthorized Access");
         }
     }
 });
 
-function openAdmin() {
-    document.getElementById('adminArea').style.display = "flex";
-    const data = JSON.parse(localStorage.getItem('lebuGymLeads')) || [];
-    const list = document.getElementById('memberList');
+function displayAdmin() {
+    document.getElementById('adminPanel').style.display = "flex";
+    const data = JSON.parse(localStorage.getItem('memberLeads')) || [];
+    const tableBody = document.getElementById('adminData');
     
-    list.innerHTML = data.length > 0 
+    tableBody.innerHTML = data.length > 0 
         ? data.map(m => `<tr><td>${m.name}</td><td>${m.phone}</td><td>${m.plan}</td></tr>`).join('')
-        : "<tr><td colspan='3' style='text-align:center; padding:20px;'>No members yet.</td></tr>";
+        : "<tr><td colspan='3' style='text-align:center; padding:20px;'>No members found.</td></tr>";
 }
 
-function closeAdmin() {
-    document.getElementById('adminArea').style.display = "none";
+function hideAdmin() {
+    document.getElementById('adminPanel').style.display = "none";
 }
 
-function clearLeads() {
-    if(confirm("Erase all data?")) {
-        localStorage.removeItem('lebuGymLeads');
-        openAdmin();
+function clearData() {
+    if(confirm("Confirm: Delete all registration data?")) {
+        localStorage.removeItem('memberLeads');
+        displayAdmin();
     }
 }
