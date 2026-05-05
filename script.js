@@ -1,4 +1,4 @@
-// Registration Logic
+// Registration Process
 document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -10,51 +10,50 @@ document.getElementById('regForm').addEventListener('submit', function(e) {
     };
 
     // Save to LocalStorage
-    let members = JSON.parse(localStorage.getItem('gym_db_lebu')) || [];
+    let members = JSON.parse(localStorage.getItem('lifeline_data')) || [];
     members.push(member);
-    localStorage.setItem('gym_db_lebu', JSON.stringify(members));
+    localStorage.setItem('lifeline_data', JSON.stringify(members));
 
     // Show Thank You Popup
     document.getElementById('thankYouModal').style.display = 'block';
     
     this.reset();
-    loadMembers();
+    loadMembers(); // Refresh admin list
 });
 
-// Modal Controls
 function closeModal() {
     document.getElementById('thankYouModal').style.display = 'none';
 }
 
-// Admin Logic
+// Admin Dashboard Access
 function toggleAdmin() {
-    const code = prompt("Enter Management Key:");
-    if (code === "admin123") {
+    const password = prompt("Enter Admin Password:");
+    if (password === "admin123") {
         document.getElementById('adminPanel').style.display = "block";
         document.getElementById('adminBtn').style.display = "none";
         loadMembers();
     } else {
-        alert("Invalid Access.");
+        alert("Access Denied.");
     }
 }
 
 function loadMembers() {
     const list = document.getElementById('memberList');
-    const members = JSON.parse(localStorage.getItem('gym_db_lebu')) || [];
+    const members = JSON.parse(localStorage.getItem('lifeline_data')) || [];
     
     list.innerHTML = members.map(m => `
         <tr>
             <td>${m.name}</td>
             <td>${m.phone}</td>
-            <td><span style="color:#fbbf24">${m.service}</span></td>
+            <td>${m.service}</td>
             <td>${m.date}</td>
         </tr>
     `).join('');
 }
 
 function clearData() {
-    if(confirm("Delete all registration records?")) {
-        localStorage.removeItem('gym_db_lebu');
+    if(confirm("Are you sure you want to delete all records?")) {
+        localStorage.removeItem('lifeline_data');
         loadMembers();
     }
 }
