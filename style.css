@@ -1,30 +1,17 @@
-/* 
-   Life Line Fitness Premium Stylesheet 
-   Optimized for: Samsung S20+ 5G & Desktop Browsers
-*/
-
 :root {
-    --primary: #fbbf24;       /* Gold/Yellow from logo */
-    --primary-hover: #f59e0b;
-    --bg: #0a0a0a;            /* Deep black background */
-    --card: #141414;          /* Slightly lighter card background */
+    --primary: #fbbf24;
+    --bg: #0a0a0a;
+    --card: #141414;
     --text: #ffffff;
     --gray: #a1a1aa;
-    --success: #22c55e;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body { 
     background-color: var(--bg); 
     color: var(--text); 
-    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; 
-    line-height: 1.6;
-    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    scroll-behavior: smooth; 
 }
 
 /* --- NAVIGATION --- */
@@ -32,239 +19,89 @@ nav {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    padding: 1rem 8%; 
-    background: rgba(0, 0, 0, 0.95); 
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #222;
+    padding: 1rem 5%; 
+    background: rgba(0,0,0,0.95); 
+    border-bottom: 1px solid #222; 
     position: sticky; 
     top: 0; 
     z-index: 1000;
 }
 
-.logo { 
-    font-size: 1.5rem; 
-    font-weight: 800; 
-    letter-spacing: -1px; 
-    text-transform: uppercase;
+.logo-container { display: flex; align-items: center; gap: 12px; }
+
+.nav-logo {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    object-fit: cover;
 }
 
+.logo { font-size: 1.2rem; font-weight: bold; }
 .logo span { color: var(--primary); }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
+.nav-links { display: flex; align-items: center; gap: 20px; }
 
-/* Fix for purple/visited links */
-.nav-links a {
-    color: var(--text) !important; 
+/* FIX PURPLE LINKS */
+.nav-links a, .nav-links a:visited {
+    color: #ffffff !important;
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 500;
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--primary) !important;
-}
-
-/* TikTok Icon Styling */
-.nav-icon {
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s ease;
-}
-
-.nav-icon:hover {
-    transform: scale(1.2);
-}
+.nav-links a:hover { color: var(--primary) !important; }
 
 .nav-phone {
     background: var(--primary);
     color: #000 !important;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 50px;
-    font-weight: 700;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
+    font-weight: bold;
 }
 
-.nav-phone:hover {
-    background: var(--primary-hover);
+/* --- HERO --- */
+.hero {
+    height: 60vh; 
+    display: flex; 
+    text-align: center; 
+    justify-content: center; 
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200');
+    background-size: cover; background-position: center;
+}
+
+.hero h1 { font-size: 3rem; margin: 10px 0; }
+.hero span { color: var(--primary); }
+.badge { background: rgba(251, 191, 36, 0.2); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
+
+.btn-glow {
+    margin-top: 20px; padding: 12px 30px; background: var(--primary); color: #000;
+    text-decoration: none; font-weight: bold; border-radius: 50px;
     box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
 }
 
-/* --- HERO SECTION --- */
-.hero {
-    height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
-                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070');
-    background-size: cover;
-    background-position: center;
-}
+/* --- CARDS & FORM --- */
+.price-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 3rem 5%; }
+.price-card { background: var(--card); padding: 2rem; border-radius: 15px; border: 1px solid #333; width: 280px; text-align: center; }
+.price-card.featured { border-color: var(--primary); }
+.service-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
 
-.badge {
-    background: rgba(251, 191, 36, 0.1);
-    color: var(--primary);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+.container { max-width: 400px; margin: 3rem auto; background: var(--card); padding: 2.5rem; border-radius: 15px; border: 1px solid #333; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; margin-bottom: 5px; color: var(--gray); }
+input, select { width: 100%; padding: 12px; background: #222; border: 1px solid #444; color: #fff; border-radius: 8px; box-sizing: border-box; }
 
-.hero h1 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-weight: 900;
-    margin: 1rem 0;
-}
+.btn { width: 100%; padding: 15px; background: var(--primary); border: none; font-weight: bold; cursor: pointer; border-radius: 8px; margin-top: 10px; }
 
-.hero h1 span { color: var(--primary); }
+/* --- MODAL --- */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+.modal-content { background: var(--card); margin: 20vh auto; padding: 2.5rem; width: 85%; max-width: 400px; text-align: center; border-radius: 20px; border: 1px solid var(--primary); }
 
-.btn-glow {
-    margin-top: 20px;
-    padding: 15px 35px;
-    background: var(--primary);
-    color: #000;
-    text-decoration: none;
-    font-weight: 800;
-    border-radius: 50px;
-    display: inline-block;
-    transition: 0.4s;
-    text-transform: uppercase;
-}
-
-/* --- SERVICES & PLANS --- */
-#plans { padding: 5rem 8%; text-align: center; }
-
-.section-title { font-size: 2.5rem; margin-bottom: 3rem; text-transform: uppercase; }
-.section-title span { color: var(--primary); }
-
-.price-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.price-card {
-    background: var(--card);
-    padding: 3rem 2rem;
-    border-radius: 24px;
-    border: 1px solid #222;
-    transition: 0.4s;
-}
-
-.price-card.featured {
-    border-color: var(--primary);
-    transform: scale(1.05);
-}
-
-.service-icon {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-}
-
-/* --- FORM & MODAL --- */
-.container {
-    max-width: 500px;
-    margin: 4rem auto;
-    background: var(--card);
-    padding: 3rem;
-    border-radius: 24px;
-    border: 1px solid #333;
-}
-
-.form-group { margin-bottom: 1.5rem; text-align: left; }
-.form-group label { display: block; margin-bottom: 8px; color: var(--gray); font-size: 0.9rem; }
-
-input, select {
-    width: 100%;
-    padding: 15px;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 12px;
-    color: #fff;
-    font-size: 1rem;
-}
-
-.btn {
-    width: 100%;
-    padding: 18px;
-    background: var(--primary);
-    color: #000;
-    border: none;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* Modal Popup Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 2000;
-}
-
-.modal-content {
-    background: var(--card);
-    margin: 15vh auto;
-    padding: 3rem;
-    width: 90%;
-    max-width: 450px;
-    text-align: center;
-    border-radius: 30px;
-    border: 1px solid var(--primary);
-}
-
-.success-icon { font-size: 4rem; color: var(--success); margin-bottom: 1rem; }
-
-/* --- ADMIN PANEL --- */
-.admin-panel {
-    margin: 4rem 8%;
-    background: #000;
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px dashed #444;
-}
-
-.table-scroll { overflow-x: auto; margin-top: 1.5rem; }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th { background: #1a1a1a; padding: 15px; text-align: left; border-bottom: 2px solid var(--primary); }
-td { padding: 15px; border-bottom: 1px solid #222; }
-
-.admin-access-btn {
-    width: 100%;
-    color: #444;
-    background: none;
-    border: none;
-    padding: 40px;
-    cursor: pointer;
-    font-size: 0.8rem;
-}
-
-/* --- MOBILE RESPONSIVENESS --- */
-@media (max-width: 768px) {
-    nav { flex-direction: column; gap: 15px; }
-    .price-card.featured { transform: none; }
-    .hero h1 { font-size: 2.5rem; }
-}
+/* --- ADMIN --- */
+.admin-panel { padding: 2rem 5%; background: #000; border-top: 1px solid #222; }
+table { width: 100%; border-collapse: collapse; min-width: 500px; }
+th { background: var(--primary); color: #000; padding: 12px; text-align: left; }
+td { padding: 12px; border-bottom: 1px solid #222; }
+.table-scroll { overflow-x: auto; }
+.admin-access-btn { width: 100%; color: #333; background: none; border: none; padding: 50px; cursor: pointer; }
