@@ -1,72 +1,81 @@
-/* Reset - This stops links from being blue */
+/* 1. Reset Styles - Fixes the blue links in image_d9f738.png */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none; /* Removes underlines from all links */
 }
 
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
 }
 
-/* Header & Layout */
+/* 2. Header & Navigation */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
+    background-color: #000000;
+    border-bottom: 1px solid #222;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .logo span {
-    color: #fbbf24; /* Your Gold Color */
+    color: #fbbf24; /* Your Brand Gold */
 }
 
-/* Button Styling - Fixes the blue text in your screenshot */
+/* 3. Button Container & Buttons (Fixes image_d9f738.png) */
 .header-buttons {
     display: flex;
-    gap: 15px;
+    gap: 12px;
+    align-items: center;
 }
 
 .tiktok-btn, .call-btn {
-    background-color: #fbbf24;
-    color: #000000 !important; /* Force black text over blue */
+    background-color: #fbbf24; /* Gold background */
+    color: #000000 !important; /* Forces black text, overrides blue */
     padding: 10px 20px;
     border-radius: 50px;
-    text-decoration: none !important; /* Removes blue underline */
     font-weight: bold;
+    font-size: 14px;
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
+    border: 2px solid #fbbf24;
 }
 
+/* Ensures the TikTok icon stays black */
 .tiktok-btn svg {
     fill: #000000;
 }
 
+/* Hover effects */
 .tiktok-btn:hover, .call-btn:hover {
     background-color: #ffffff;
-    transform: scale(1.05);
+    border-color: #ffffff;
+    transform: translateY(-2px);
 }
 
-/* Facility Section */
+/* 4. Facility Gallery Section */
 .facility-section {
     padding: 60px 5%;
     text-align: center;
 }
 
 .facility-section h2 {
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 40px;
-    text-transform: uppercase;
 }
 
 .facility-section h2 span {
@@ -75,17 +84,30 @@ header {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .gallery-item img {
     width: 100%;
-    border-radius: 15px;
+    height: auto;
+    border-radius: 12px;
     border: 2px solid #333;
-    transition: 0.3s;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .gallery-item img:hover {
+    transform: scale(1.02);
     border-color: #fbbf24;
+}
+
+/* 5. Pricing Section */
+.pricing-section {
+    padding: 60px 5%;
+    text-align: center;
+    background-color: #0a0a0a;
+}
+
+.pricing-section h2 span {
+    color: #fbbf24;
 }
