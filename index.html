@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Line Fitness | Lebu Official</title>
+    <title>Life Line Fitness | Lebu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,79 +17,58 @@
         <div class="nav-right">
             <a href="#plans">Plans</a>
             <a href="#register">Join</a>
-            <a href="tel:0911182141" class="phone-btn"><i class="fas fa-phone"></i> 0911182141</a>
+            <a href="tel:0911182141" class="phone-link">
+                <i class="fas fa-phone-alt"></i> 0911182141
+            </a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-overlay">
-            <div class="location-tag">Gidami Business Center, Lebu</div>
+            <div class="location-pill">Gidami Business Center, Lebu</div>
             <h1>LEVEL <span>UP</span></h1>
             <p>Premium Gym & Kickboxing Training</p>
-            <a href="#register" class="cta-btn">Register Now</a>
+            <a href="#register" class="hero-btn">Register Now</a>
         </div>
     </header>
 
-    <section id="plans" class="plans">
-        <h2>Our <span>Plans</span></h2>
+    <section id="plans" class="plans-section">
+        <h2 class="title">Our <span>Plans</span></h2>
         <div class="plans-grid">
             <div class="plan-card">
                 <h3>Monthly Gym</h3>
                 <div class="price">1,500 <span>ETB</span></div>
-                <ul class="features">
+                <ul>
                     <li><i class="fas fa-check"></i> Full Access</li>
                     <li><i class="fas fa-check"></i> Locker Room</li>
                 </ul>
-                <a href="#register" class="select-plan">Select</a>
+                <a href="#register" class="select-btn">Join Now</a>
             </div>
             <div class="plan-card featured">
-                <div class="badge">Most Popular</div>
+                <div class="ribbon">Most Popular</div>
                 <h3>Pro Athlete</h3>
                 <div class="price">2,500 <span>ETB</span></div>
-                <ul class="features">
+                <ul>
                     <li><i class="fas fa-check"></i> Gym + Kickboxing</li>
                     <li><i class="fas fa-check"></i> Steam & Sauna</li>
                 </ul>
-                <a href="#register" class="select-plan active">Select</a>
+                <a href="#register" class="select-btn active">Join Now</a>
             </div>
         </div>
     </section>
 
-    <section id="register" class="registration">
-        <div class="reg-box">
+    <section id="register" class="reg-section">
+        <div class="reg-card">
             <h2>Join the <span>Family</span></h2>
-            <p>Enter your details to sign up</p>
-            <form id="gymForm">
-                <input type="text" id="fullName" placeholder="Your Name" required>
-                <input type="tel" id="phoneNumber" placeholder="Phone (09...)" required>
-                <select id="selectedPlan">
-                    <option value="Monthly Gym">Monthly Gym</option>
-                    <option value="Pro Athlete">Pro Athlete</option>
-                </select>
+            <form id="regForm">
+                <input type="text" id="adminName" placeholder="Full Name" required>
+                <input type="tel" id="adminPhone" placeholder="Phone Number" required>
                 <button type="submit">Submit Registration</button>
             </form>
         </div>
     </section>
 
-    <!-- Hidden Admin Panel -->
-    <section id="adminPanel" class="admin-section" style="display:none;">
-        <div class="admin-header">
-            <h2>Admin Dashboard</h2>
-            <button onclick="logoutAdmin()">Logout</button>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Plan</th>
-                </tr>
-            </thead>
-            <tbody id="memberData"></tbody>
-        </table>
-    </section>
-
-    <footer onclick="handleAdminTrigger()">
+    <footer onclick="checkAdmin()">
         <p>&copy; 2026 Life Line Fitness Lebu</p>
     </footer>
 
