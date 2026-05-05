@@ -1,4 +1,4 @@
-// Registration Process
+// Registration Handler
 document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -6,26 +6,26 @@ document.getElementById('regForm').addEventListener('submit', function(e) {
         name: document.getElementById('name').value,
         phone: document.getElementById('phone').value,
         service: document.getElementById('service').value,
-        date: new Date().toLocaleDateString()
+        date: new Date().toLocaleString()
     };
 
-    // Save to LocalStorage
+    // Save locally
     let members = JSON.parse(localStorage.getItem('lifeline_data')) || [];
     members.push(member);
     localStorage.setItem('lifeline_data', JSON.stringify(members));
 
-    // Show Thank You Popup
+    // Show modal
     document.getElementById('thankYouModal').style.display = 'block';
     
     this.reset();
-    loadMembers(); // Refresh admin list
+    loadMembers(); 
 });
 
 function closeModal() {
     document.getElementById('thankYouModal').style.display = 'none';
 }
 
-// Admin Dashboard Access
+// Admin Panel Logic
 function toggleAdmin() {
     const password = prompt("Enter Admin Password:");
     if (password === "admin123") {
@@ -33,7 +33,7 @@ function toggleAdmin() {
         document.getElementById('adminBtn').style.display = "none";
         loadMembers();
     } else {
-        alert("Access Denied.");
+        alert("Incorrect Password.");
     }
 }
 
@@ -52,7 +52,7 @@ function loadMembers() {
 }
 
 function clearData() {
-    if(confirm("Are you sure you want to delete all records?")) {
+    if(confirm("Erase all registration records?")) {
         localStorage.removeItem('lifeline_data');
         loadMembers();
     }
