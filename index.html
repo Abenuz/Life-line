@@ -10,27 +10,28 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background: var(--black); color: white; scroll-behavior: smooth; }
 
-        /* Modern Navbar */
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: 800; font-size: 1.2rem; }
         .logo span { color: var(--gold); }
         .phone-btn { background: var(--gold); color: black; padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-        /* Video Section */
-        .video-section { height: 80vh; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle, #111 0%, #000 100%); }
-        .phone-mockup { width: 320px; height: 580px; background: #0a0a0a; border: 4px solid #222; border-radius: 35px; position: relative; overflow: hidden; box-shadow: 0 0 50px rgba(251, 191, 36, 0.1); }
-        .video-content { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
-        .play-icon { font-size: 5rem; color: #222; margin-bottom: 20px; }
-        .video-info { position: absolute; bottom: 30px; left: 20px; text-align: left; }
-        .video-info h4 { margin-bottom: 5px; }
-        .video-info p { font-size: 0.8rem; color: #aaa; }
+        /* Fixed Video Section */
+        .video-section { height: 85vh; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle, #111 0%, #000 100%); }
+        .phone-mockup { width: 320px; height: 580px; background: #000; border: 4px solid #222; border-radius: 35px; position: relative; overflow: hidden; box-shadow: 0 0 50px rgba(251, 191, 36, 0.1); }
+        
+        /* This iframe allows a real video to play */
+        .video-container { width: 100%; height: 100%; position: relative; }
+        .video-container iframe { width: 100%; height: 100%; border: none; }
 
-        /* Pricing Section */
+        .video-info { position: absolute; bottom: 30px; left: 20px; text-align: left; z-index: 5; pointer-events: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+        .video-info h4 { margin-bottom: 5px; }
+        .video-info p { font-size: 0.8rem; color: #eee; }
+
         .pricing { padding: 5rem 5%; text-align: center; }
         .pricing h2 { margin-bottom: 3rem; font-size: 2.5rem; }
         .pricing h2 span { color: var(--gold); }
         .cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
-        .card { background: #0d0d0d; padding: 3rem 2rem; border-radius: 25px; width: 300px; border: 1px solid #1a1a1a; transition: 0.3s; }
+        .card { background: #0d0d0d; padding: 3rem 2rem; border-radius: 25px; width: 300px; border: 1px solid #1a1a1a; }
         .card.featured { border: 2px solid var(--gold); transform: scale(1.05); }
         .price { font-size: 3.5rem; font-weight: 800; margin: 1rem 0; }
         .price small { font-size: 1rem; color: #555; }
@@ -38,7 +39,6 @@
         .gold-btn { background: var(--gold); color: black; }
         .outline-btn { border: 1px solid var(--gold); color: var(--gold); }
 
-        /* Form */
         .register { padding: 5rem 5%; background: #050505; }
         .form-box { max-width: 450px; margin: 0 auto; background: #111; padding: 40px; border-radius: 30px; border: 1px solid #222; }
         input, select { width: 100%; padding: 15px; margin-bottom: 15px; background: #000; border: 1px solid #333; color: white; border-radius: 10px; }
@@ -56,8 +56,9 @@
 
     <section class="video-section">
         <div class="phone-mockup">
-            <div class="video-content">
-                <i class="fas fa-play-circle play-icon"></i>
+            <div class="video-container">
+                <!-- Using a gym-themed YouTube Short as a placeholder -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&controls=0" allow="autoplay"></iframe>
                 <div class="video-info">
                     <h4>@lifeline_fitness_lebu</h4>
                     <p>Level up your game at Gidami Business Center! #EthiopiaGym</p>
@@ -102,22 +103,23 @@
     </footer>
 
     <script>
-        // Form Logic
         document.getElementById('gymForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            const name = document.getElementById('userName').value;
             const member = {
-                name: document.getElementById('userName').value,
+                name: name,
                 phone: document.getElementById('userPhone').value,
                 plan: document.getElementById('userPlan').value
             };
             let list = JSON.parse(localStorage.getItem('gymMembers')) || [];
             list.push(member);
             localStorage.setItem('gymMembers', JSON.stringify(list));
-            alert("Registration successful! The gym will call you.");
+            
+            // Added Thank You message
+            alert("Thanks for registering, " + name + "! We will contact you soon.");
             this.reset();
         });
 
-        // Secret Admin Logic
         let count = 0;
         function adminAccess() {
             count++;
