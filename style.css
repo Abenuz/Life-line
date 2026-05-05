@@ -1,52 +1,60 @@
-:root { --gold: #fbbf24; --bg: #000; --card: #111; }
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-body { background: var(--bg); color: white; scroll-behavior: smooth; }
+:root { --gold: #fbbf24; --black: #000; --deep: #0a0a0a; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background: var(--black); color: white; scroll-behavior: smooth; }
 
-/* Navbar */
-.navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(0,0,0,0.95); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #222; }
+/* Navigation */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: rgba(0,0,0,0.9); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #1a1a1a; }
 .logo-text span { color: var(--gold); }
-.nav-right a { color: white; text-decoration: none; margin-left: 20px; font-size: 14px; font-weight: 500; }
-.phone-link { background: var(--gold) !important; color: #000 !important; padding: 8px 18px; border-radius: 20px; font-weight: bold; }
+.nav-right a { color: #eee; text-decoration: none; margin-left: 1.5rem; font-size: 0.9rem; transition: 0.3s; }
+.phone-link { background: var(--gold) !important; color: #000 !important; padding: 0.5rem 1.2rem; border-radius: 50px; font-weight: 800; }
 
-/* TikTok Dashboard */
-.tiktok-section { height: 90vh; display: flex; justify-content: center; align-items: center; padding: 20px 0; }
-.tiktok-card { width: 340px; height: 600px; background: #1a1a1a; border-radius: 15px; position: relative; border: 1px solid #333; overflow: hidden; }
-.video-mock { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #444; }
-.video-mock i { font-size: 60px; margin-bottom: 15px; }
-.side-actions { position: absolute; right: 15px; bottom: 120px; display: flex; flex-direction: column; gap: 20px; text-align: center; }
-.action i { font-size: 24px; margin-bottom: 5px; cursor: pointer; }
-.action span { font-size: 12px; display: block; }
-.video-meta { position: absolute; bottom: 30px; left: 15px; width: 85%; }
-.handle { font-weight: bold; margin-bottom: 5px; }
-.caption { font-size: 14px; color: #ccc; line-height: 1.4; }
+/* TikTok Dashboard Section */
+.tiktok-section { height: 90vh; display: flex; justify-content: center; align-items: center; padding: 2rem 0; }
+.tiktok-card { width: 340px; height: 600px; background: #111; border-radius: 20px; position: relative; border: 1px solid #222; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.video-overlay { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0.5; }
+.play-btn { font-size: 4rem; color: #fff; margin-bottom: 1rem; }
+.sidebar-actions { position: absolute; right: 15px; bottom: 100px; display: flex; flex-direction: column; gap: 1.5rem; text-align: center; }
+.stat i { font-size: 1.5rem; cursor: pointer; color: #fff; }
+.stat span { font-size: 0.75rem; display: block; margin-top: 4px; }
+.video-details { position: absolute; bottom: 25px; left: 15px; width: 85%; }
+.username { font-weight: bold; font-size: 1rem; margin-bottom: 5px; }
+.description { font-size: 0.85rem; color: #bbb; line-height: 1.4; }
 
-/* Gallery */
-.gallery-section { padding: 80px 5%; text-align: center; }
-.section-title { font-size: 2.5rem; margin-bottom: 40px; }
-.section-title span { color: var(--gold); }
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-.gym-img { height: 250px; background-size: cover; background-position: center; border-radius: 12px; border: 1px solid #222; }
+/* Gallery Section */
+.gym-gallery { padding: 5rem 5%; text-align: center; }
+.grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.gym-card { height: 280px; background-size: cover; background-position: center; border-radius: 15px; border: 1px solid #222; transition: 0.4s; }
+.gym-card.empty { background: #111; display: flex; align-items: center; justify-content: center; color: #444; border: 1px dashed #333; }
+.gym-card:hover { transform: translateY(-5px); border-color: var(--gold); }
 
-/* Pricing */
-.pricing-section { padding: 60px 5%; background: #080808; text-align: center; }
-.plans-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 30px; }
-.plan-card { background: var(--card); padding: 40px; border-radius: 20px; width: 320px; border: 1px solid #222; position: relative; }
-.plan-card.highlight { border: 2px solid var(--gold); }
-.popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 4px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; }
-.price { font-size: 3rem; font-weight: bold; margin: 25px 0; }
-.price span { font-size: 16px; color: #777; }
-.btn-outline { display: block; padding: 12px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; border-radius: 8px; font-weight: bold; }
-.btn-fill { display: block; padding: 12px; background: var(--gold); color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; }
+/* Pricing Section */
+.pricing-area { padding: 4rem 5%; background: var(--deep); text-align: center; }
+.title { font-size: 2.2rem; margin-bottom: 3rem; }
+.title span { color: var(--gold); }
+.cards-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+.price-card { background: #111; padding: 3rem 2rem; border-radius: 24px; width: 320px; border: 1px solid #222; position: relative; }
+.price-card.premium { border: 2px solid var(--gold); transform: scale(1.05); }
+.badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 0.4rem 1.2rem; border-radius: 20px; font-weight: bold; font-size: 0.8rem; }
+.cost { font-size: 3.5rem; font-weight: 900; margin: 1.5rem 0; }
+.cost span { font-size: 1rem; color: #666; }
+.outline-btn { display: block; padding: 1rem; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; border-radius: 12px; font-weight: bold; }
+.fill-btn { display: block; padding: 1rem; background: var(--gold); color: #000; text-decoration: none; border-radius: 12px; font-weight: bold; }
+
+/* Form Section */
+.register-section { padding: 5rem 5%; display: flex; justify-content: center; }
+.form-container { background: #111; padding: 3rem; border-radius: 24px; width: 100%; max-width: 450px; border: 1px solid #222; }
+input, select { width: 100%; padding: 1rem; margin-bottom: 1.2rem; background: #000; border: 1px solid #333; color: white; border-radius: 10px; font-size: 1rem; }
+button[type="submit"] { width: 100%; padding: 1.2rem; background: var(--gold); border: none; font-weight: 800; border-radius: 10px; cursor: pointer; text-transform: uppercase; }
 
 /* Admin Modal */
-.admin-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; display: flex; align-items: center; justify-content: center; }
-.admin-container { background: #111; padding: 30px; border-radius: 20px; width: 90%; max-width: 550px; border: 1px solid var(--gold); }
-.scroll-box { max-height: 350px; overflow-y: auto; margin: 20px 0; border: 1px solid #333; }
+.modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.modal-content { background: #111; padding: 2rem; border-radius: 20px; width: 100%; max-width: 600px; border: 1px solid var(--gold); }
+.table-container { max-height: 400px; overflow-y: auto; margin: 1.5rem 0; border: 1px solid #222; border-radius: 10px; }
 table { width: 100%; border-collapse: collapse; text-align: left; }
-th, td { padding: 12px; border-bottom: 1px solid #222; font-size: 14px; }
-th { color: var(--gold); }
-.modal-btns { display: flex; gap: 10px; }
-.btn-danger { background: #700; color: white; border: none; padding: 10px; border-radius: 5px; flex: 1; cursor: pointer; }
-.btn-close { background: #444; color: white; border: none; padding: 10px; border-radius: 5px; flex: 1; cursor: pointer; }
+th, td { padding: 1rem; border-bottom: 1px solid #222; font-size: 0.9rem; }
+th { color: var(--gold); text-transform: uppercase; letter-spacing: 1px; }
+.modal-footer { display: flex; gap: 1rem; }
+.danger-btn { background: #822; color: white; border: none; padding: 12px; border-radius: 8px; flex: 1; cursor: pointer; }
+.exit-btn { background: #333; color: white; border: none; padding: 12px; border-radius: 8px; flex: 1; cursor: pointer; }
 
-footer { padding: 50px; text-align: center; color: #333; cursor: pointer; }
+footer { padding: 4rem; text-align: center; color: #222; cursor: pointer; font-size: 0.8rem; }
