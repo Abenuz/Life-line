@@ -17,18 +17,16 @@
         <div class="nav-right">
             <a href="#plans">Plans</a>
             <a href="#register">Join</a>
-            <a href="tel:0911182141" class="phone-link">
-                <i class="fas fa-phone-alt"></i> 0911182141
-            </a>
+            <a href="tel:0911182141" class="phone-link"><i class="fas fa-phone"></i> 0911182141</a>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-overlay">
+        <div class="hero-content">
             <div class="location-pill">Gidami Business Center, Lebu</div>
             <h1>LEVEL <span>UP</span></h1>
             <p>Premium Gym & Kickboxing Training</p>
-            <a href="#register" class="hero-btn">Register Now</a>
+            <a href="#register" class="cta-button">Register Now</a>
         </div>
     </header>
 
@@ -37,21 +35,20 @@
         <div class="plans-grid">
             <div class="plan-card">
                 <h3>Monthly Gym</h3>
-                <div class="price">5000 <span>ETB</span></div>
+                <div class="price">5,000 <span>ETB</span></div>
                 <ul>
                     <li><i class="fas fa-check"></i> Full Access</li>
                     <li><i class="fas fa-check"></i> Locker Room</li>
-                    <li><i class="fas fa-check"></i> Steam</li>
                 </ul>
                 <a href="#register" class="select-btn">Join Now</a>
             </div>
             <div class="plan-card featured">
-                <div class="ribbon">Most Popular</div>
+                <div class="ribbon">Pro Choice</div>
                 <h3>Pro Athlete</h3>
                 <div class="price">6,500 <span>ETB</span></div>
                 <ul>
                     <li><i class="fas fa-check"></i> Gym + Kickboxing</li>
-                    <li><i class="fas fa-check"></i> Steam & personal trainer</li>
+                    <li><i class="fas fa-check"></i> Steam & Sauna</li>
                 </ul>
                 <a href="#register" class="select-btn active">Join Now</a>
             </div>
@@ -62,14 +59,37 @@
         <div class="reg-card">
             <h2>Join the <span>Family</span></h2>
             <form id="regForm">
-                <input type="text" id="adminName" placeholder="Full Name" required>
-                <input type="tel" id="adminPhone" placeholder="Phone Number" required>
+                <input type="text" id="userName" placeholder="Full Name" required>
+                <input type="tel" id="userPhone" placeholder="Phone Number" required>
+                <select id="userPlan">
+                    <option value="Monthly (5000)">Monthly - 5,000 ETB</option>
+                    <option value="Pro (6500)">Pro - 6,500 ETB</option>
+                </select>
                 <button type="submit">Submit Registration</button>
             </form>
         </div>
     </section>
 
-    <footer onclick="checkAdmin()">
+    <!-- Admin Panel (Starts Hidden) -->
+    <section id="adminArea" class="admin-panel" style="display:none;">
+        <div class="admin-content">
+            <h3>Registered Members</h3>
+            <table id="memberTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Plan</th>
+                    </tr>
+                </thead>
+                <tbody id="memberList"></tbody>
+            </table>
+            <button onclick="clearLeads()" class="clear-btn">Clear All Data</button>
+            <button onclick="closeAdmin()" class="close-btn">Close Panel</button>
+        </div>
+    </section>
+
+    <footer id="adminTrigger">
         <p>&copy; 2026 Life Line Fitness Lebu</p>
     </footer>
 
