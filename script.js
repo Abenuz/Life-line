@@ -1,4 +1,4 @@
-// Function to handle member registration
+// Registration Logic
 document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -9,50 +9,52 @@ document.getElementById('regForm').addEventListener('submit', function(e) {
         date: new Date().toLocaleDateString()
     };
 
-    // Save to browser memory
-    let members = JSON.parse(localStorage.getItem('gym_data')) || [];
+    // Save to LocalStorage
+    let members = JSON.parse(localStorage.getItem('gym_db_lebu')) || [];
     members.push(member);
-    localStorage.setItem('gym_data', JSON.stringify(members));
+    localStorage.setItem('gym_db_lebu', JSON.stringify(members));
 
-    // UI Feedback
-    const status = document.getElementById('status');
-    status.innerText = "Member Added Successfully!";
-    status.style.color = "#22c55e";
+    // Show Thank You Popup
+    document.getElementById('thankYouModal').style.display = 'block';
     
     this.reset();
-    loadMembers(); // Updates admin view immediately
+    loadMembers();
 });
 
-// Admin Dashboard Access
+// Modal Controls
+function closeModal() {
+    document.getElementById('thankYouModal').style.display = 'none';
+}
+
+// Admin Logic
 function toggleAdmin() {
-    const password = prompt("Enter Admin Password:");
-    if (password === "admin123") { // Your secure password
+    const code = prompt("Enter Management Key:");
+    if (code === "admin123") {
         document.getElementById('adminPanel').style.display = "block";
         document.getElementById('adminBtn').style.display = "none";
         loadMembers();
     } else {
-        alert("Incorrect Access Code.");
+        alert("Invalid Access.");
     }
 }
 
-// Function to view registered people
 function loadMembers() {
     const list = document.getElementById('memberList');
-    const members = JSON.parse(localStorage.getItem('gym_data')) || [];
+    const members = JSON.parse(localStorage.getItem('gym_db_lebu')) || [];
     
     list.innerHTML = members.map(m => `
         <tr>
             <td>${m.name}</td>
             <td>${m.phone}</td>
-            <td>${m.service}</td>
+            <td><span style="color:#fbbf24">${m.service}</span></td>
             <td>${m.date}</td>
         </tr>
     `).join('');
 }
 
 function clearData() {
-    if(confirm("Erase all member records?")) {
-        localStorage.removeItem('gym_data');
+    if(confirm("Delete all registration records?")) {
+        localStorage.removeItem('gym_db_lebu');
         loadMembers();
     }
 }
