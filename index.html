@@ -4,213 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life Line Fitness | Lebu</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { --gold: #fbbf24; --black: #000; --deep: #0a0a0a; --gray: #1a1a1a; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: var(--black); color: white; scroll-behavior: smooth; }
-
-        /* Navbar */
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: rgba(0,0,0,0.95); border-bottom: 1px solid var(--gray); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: 800; font-size: 1.2rem; }
-        .logo span { color: var(--gold); }
-        .phone-btn { background: var(--gold); color: black; padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
-
-        /* NEW GALLERY SECTION */
-        .gallery-section { padding: 4rem 5%; text-align: center; background: var(--deep); }
-        .gallery-section h2 { margin-bottom: 2rem; font-size: 2rem; text-transform: uppercase; letter-spacing: 2px; }
-        .gallery-section h2 span { color: var(--gold); }
-        
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 1.5rem; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
-        
-        .gallery-item { 
-            height: 250px; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            border: 1px solid var(--gray);
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover { transform: translateY(-5px); border-color: var(--gold); }
-        
-        .gallery-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
-
-        /* Pricing */
-        .pricing { padding: 5rem 5%; text-align: center; }
-        .pricing h2 { margin-bottom: 3rem; font-size: 2.2rem; }
-        .pricing h2 span { color: var(--gold); }
-        .cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
-        .card { background: #0d0d0d; padding: 3rem 2rem; border-radius: 25px; width: 300px; border: 1px solid var(--gray); }
-        .card.featured { border: 2px solid var(--gold); transform: scale(1.05); }
-        .price { font-size: 3.2rem; font-weight: 800; margin: 1rem 0; }
-        .price small { font-size: 0.9rem; color: #555; }
-        .join-btn { display: block; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 20px; }
-        .gold-btn { background: var(--gold); color: black; }
-        .outline-btn { border: 1px solid var(--gold); color: var(--gold); }
-
-        /* Register Form */
-        .register { padding: 5rem 5%; background: #050505; }
-        .form-box { max-width: 450px; margin: 0 auto; background: #111; padding: 40px; border-radius: 30px; border: 1px solid var(--gray); }
-        input, select { width: 100%; padding: 15px; margin-bottom: 15px; background: #000; border: 1px solid #333; color: white; border-radius: 10px; }
-        .submit-btn { width: 100%; padding: 15px; background: var(--gold); border: none; font-weight: 800; border-radius: 10px; cursor: pointer; }
-
-        /* Admin Dashboard (Hidden) */
-        #adminPanel {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.98); z-index: 2000; padding: 2rem; overflow-y: auto;
-        }
-        .admin-container { max-width: 900px; margin: 0 auto; background: #111; padding: 2rem; border-radius: 20px; border: 1px solid var(--gold); }
-        .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid #333; padding-bottom: 1rem; }
-        .admin-table { width: 100%; border-collapse: collapse; }
-        .admin-table th { text-align: left; color: var(--gold); padding: 12px; border-bottom: 2px solid #222; }
-        .admin-table td { padding: 12px; border-bottom: 1px solid #222; }
-        .delete-btn { color: #ff4444; cursor: pointer; border: none; background: none; }
-
-        footer { padding: 40px; text-align: center; color: #222; cursor: pointer; }
-    </style>
+    <!-- Crucial: This links your CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-<div class="header-buttons">
-    <!-- Call Button -->
-    <a href="tel:0911182141" class="call-btn">0911182141</a>
+<header>
+    <div class="logo">LIFE LINE <span>FITNESS</span></div>
     
-    <!-- TikTok Button (Corrected Link) -->
-<a href="https://www.tiktok.com/@life.line.fitness" target="_blank" class="tiktok-btn">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512"><path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.4 121.4 0 0 0 67 20.14Z"/></svg>
-    <span>TikTok</span>
-</a>
-</div>
-</div>
-    </nav>
-
-<!-- REAL GYM IMAGES SECTION -->
-    <section class="gallery-section">
-        <h2>Our <span>Facility</span></h2>
-     <div class="gallery-grid">
-    <div class="gallery-item">
-        <img src="gym1.png" alt="Gym Area 1">
+    <div class="header-buttons">
+        <!-- Call Button -->
+        <a href="tel:0911182141" class="call-btn">0911182141</a>
+        
+        <!-- TikTok Button -->
+        <a href="https://www.tiktok.com/@lifelinefitness.et" target="_blank" class="tiktok-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512">
+                <path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17A122.18 122.18 0 0 0 381 102.39a121.4 121.4 0 0 0 67 20.14Z"/>
+            </svg>
+            <span>TikTok</span>
+        </a>
     </div>
-    <div class="gallery-item">
-        <img src="gym2.png" alt="Gym Area 2">
+</header>
+
+<section class="facility-section">
+    <h2>OUR <span>FACILITY</span></h2>
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="gym1.png" alt="Gym Area 1"></div>
+        <div class="gallery-item"><img src="gym2.png" alt="Gym Area 2"></div>
+        <div class="gallery-item"><img src="gym3.png" alt="Gym Area 3"></div>
+        <div class="gallery-item"><img src="gym4.png" alt="Gym Area 4"></div>
     </div>
-    <div class="gallery-item">
-        <img src="gym3.png" alt="Gym Area 3">
-    </div>
-    <div class="gallery-item">
-        <img src="gym4.png" alt="Gym Area 4">
-    </div>
-</div>
-    </section>
+</section>
 
-    <section class="pricing">
-        <h2>Pricing <span>Plans</span></h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Monthly Gym</h3>
-                <div class="price">5,000<br><small>ETB</small></div>
-                <a href="#join" class="join-btn outline-btn">Join Now</a>
-            </div>
-            <div class="card featured">
-                <h3 style="color: var(--gold)">Pro Athlete</h3>
-                <div class="price">6,500<br><small>ETB</small></div>
-                <a href="#join" class="join-btn gold-btn">Join Now</a>
-            </div>
-        </div>
-    </section>
+<section class="pricing-section">
+    <h2>Pricing <span>Plans</span></h2>
+    <!-- Add your pricing details here -->
+</section>
 
-    <section id="join" class="register">
-        <div class="form-box">
-            <h2>Join the <span>Family</span></h2>
-            <form id="gymForm">
-                <input type="text" id="userName" placeholder="Full Name" required>
-                <input type="tel" id="userPhone" placeholder="Phone Number" required>
-                <select id="userPlan">
-                    <option value="Monthly Gym">Monthly Gym - 5,000 ETB</option>
-                    <option value="Pro Athlete">Pro Athlete - 6,500 ETB</option>
-                </select>
-                <button type="submit" class="submit-btn">Submit Registration</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- ADMIN PANEL -->
-    <div id="adminPanel">
-        <div class="admin-container">
-            <div class="admin-header">
-                <h2>Admin <span>Dashboard</span></h2>
-                <button onclick="document.getElementById('adminPanel').style.display='none'" style="color:white; background:#333; padding:5px 15px; border-radius:5px; border:none; cursor:pointer;">Close</button>
-            </div>
-            <table class="admin-table">
-                <thead><tr><th>Name</th><th>Phone</th><th>Plan</th><th>Action</th></tr></thead>
-                <tbody id="leadTableBody"></tbody>
-            </table>
-        </div>
-    </div>
-
-    <footer onclick="adminAccess()">
-        <p>&copy; 2026 Life Line Fitness Lebu</p>
-    </footer>
-
-    <script>
-        // Registration Logic
-        document.getElementById('gymForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('userName').value;
-            const member = {
-                id: Date.now(),
-                name: name,
-                phone: document.getElementById('userPhone').value,
-                plan: document.getElementById('userPlan').value
-            };
-            let list = JSON.parse(localStorage.getItem('gymMembers')) || [];
-            list.push(member);
-            localStorage.setItem('gymMembers', JSON.stringify(list));
-            alert("Thanks for registering, " + name + "! We will call you back soon.");
-            this.reset();
-        });
-
-        // Admin Dash logic
-        let count = 0;
-        function adminAccess() {
-            count++;
-            if(count >= 5) {
-                count = 0;
-                if(prompt("Enter Admin PIN:") === "admin123") {
-                    const panel = document.getElementById('adminPanel');
-                    const tableBody = document.getElementById('leadTableBody');
-                    const data = JSON.parse(localStorage.getItem('gymMembers')) || [];
-                    tableBody.innerHTML = data.map(item => `
-                        <tr>
-                            <td>${item.name}</td>
-                            <td>${item.phone}</td>
-                            <td>${item.plan}</td>
-                            <td><button class="delete-btn" onclick="deleteLead(${item.id})"><i class="fas fa-trash"></i></button></td>
-                        </tr>
-                    `).join('');
-                    panel.style.display = "block";
-                }
-            }
-        }
-
-        function deleteLead(id) {
-            let data = JSON.parse(localStorage.getItem('gymMembers')) || [];
-            data = data.filter(item => item.id !== id);
-            localStorage.setItem('gymMembers', JSON.stringify(data));
-            adminAccess(); // Refresh
-            adminAccess(); // Refresh shortcut
-        }
-    </script>
 </body>
 </html>
