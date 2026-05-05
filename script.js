@@ -1,51 +1,47 @@
-let clickCount = 0;
+let counter = 0;
 
-// Registration Handling
+// Registration Script
 document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const member = {
+    const newEntry = {
         name: document.getElementById('userName').value,
         phone: document.getElementById('userPhone').value,
         plan: document.getElementById('userPlan').value
     };
 
-    // Save to Local Storage
-    let list = JSON.parse(localStorage.getItem('gymData')) || [];
-    list.push(member);
-    localStorage.setItem('gymData', JSON.stringify(list));
+    // Save to LocalStorage
+    let data = JSON.parse(localStorage.getItem('gymLeads')) || [];
+    data.push(newEntry);
+    localStorage.setItem('gymLeads', JSON.stringify(data));
 
-    // Success Message
+    // Success Alert
     alert("Thanks for registering, we will call you.");
     this.reset();
 });
 
-// Admin Access Trigger (Click footer 5 times)
-document.getElementById('adminTrigger').addEventListener('click', function() {
-    clickCount++;
-    if (clickCount >= 5) {
-        clickCount = 0;
-        let pass = prompt("Enter Admin Password:");
+// Admin Trigger: Click footer 5 times
+document.getElementById('footerTrigger').addEventListener('click', function() {
+    counter++;
+    if (counter >= 5) {
+        counter = 0;
+        let pass = prompt("Admin Password Required:");
         if (pass === "admin123") {
-            openAdmin();
+            showAdmin();
         } else {
-            alert("Wrong Password");
+            alert("Access Denied");
         }
     }
 });
 
-function openAdmin() {
+function showAdmin() {
     document.getElementById('adminArea').style.display = "flex";
-    const list = JSON.parse(localStorage.getItem('gymData')) || [];
-    const tableBody = document.getElementById('memberList');
+    const data = JSON.parse(localStorage.getItem('gymLeads')) || [];
+    const listBody = document.getElementById('memberList');
     
-    tableBody.innerHTML = list.map(m => `
-        <tr>
-            <td>${m.name}</td>
-            <td>${m.phone}</td>
-            <td>${m.plan}</td>
-        </tr>
-    `).join('');
+    listBody.innerHTML = data.length > 0 
+        ? data.map(m => `<tr><td>${m.name}</td><td>${m.phone}</td><td>${m.plan}</td></tr>`).join('')
+        : "<tr><td colspan='3' style='text-align:center;'>No registrations yet.</td></tr>";
 }
 
 function closeAdmin() {
@@ -53,8 +49,8 @@ function closeAdmin() {
 }
 
 function clearLeads() {
-    if(confirm("Erase all member data?")) {
-        localStorage.removeItem('gymData');
-        openAdmin();
+    if(confirm("Erase all data?")) {
+        localStorage.removeItem('gymLeads');
+        showAdmin();
     }
 }
