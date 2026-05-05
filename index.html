@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Line Fitness Lebu | Pro</title>
-    <!-- Font Awesome for Icons -->
+    <title>Life Line Fitness | Lebu Branch</title>
+    <!-- Font Awesome for TikTok and Phone Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigation Bar (Ref: image_f291e6.jpg) -->
+    <!-- Navigation (Ref: image_f277fc.jpg) -->
     <nav>
-        <div class="logo-area">
-            <div class="circle-logo">LL</div>
-            <div class="brand-text">LIFE LINE <span>FITNESS</span></div>
+        <div class="logo-group">
+            <div class="logo-circle">LL</div>
+            <div class="logo-text">LIFE LINE <span>FITNESS</span></div>
         </div>
         <div class="nav-links">
             <a href="#plans">Plans</a>
-            <a href="#registration">Join</a>
+            <a href="#join">Join</a>
             <a href="https://www.tiktok.com/@life.line.fitness" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
-        <a href="tel:0911182141" class="phone-btn">
+        <a href="tel:0911182141" class="contact-btn">
             <i class="fas fa-phone-alt"></i> 0911182141
         </a>
     </nav>
@@ -29,52 +29,83 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-overlay">
-            <span class="location-tag">Gidami Business Center, Lebu</span>
+            <span class="loc-badge">Gidami Business Center, Lebu</span>
             <h1>LEVEL <span>UP</span></h1>
             <p>Premium Gym & Kickboxing Training</p>
-            <a href="#registration" class="main-btn">Register Now</a>
+            <a href="#join" class="hero-btn">Register Now</a>
         </div>
     </header>
 
-    <!-- Plans & Pricing Section -->
-    <section id="plans" class="plans">
-        <h2 class="title">Our <span>Plans</span></h2>
-        <div class="plan-container">
-            <div class="plan-box">
+    <!-- Plans Section -->
+    <section id="plans" class="plans-container">
+        <h2 class="section-title">Our <span>Plans</span></h2>
+        <div class="plans-grid">
+            <div class="plan-card">
                 <h3>Monthly Gym</h3>
                 <div class="price">1,500 <span>ETB</span></div>
                 <ul>
                     <li><i class="fas fa-check"></i> Full Gym Access</li>
                     <li><i class="fas fa-check"></i> Locker Room</li>
-                    <li><i class="fas fa-check"></i> Cardio Training</li>
                 </ul>
-                <a href="#registration" class="select-btn">Select</a>
+                <a href="#join" class="plan-link">Select Plan</a>
             </div>
-
-            <div class="plan-box featured">
+            <div class="plan-card featured">
                 <div class="ribbon">Best Value</div>
                 <h3>Pro Athlete</h3>
                 <div class="price">2,500 <span>ETB</span></div>
                 <ul>
                     <li><i class="fas fa-check"></i> Gym + Kickboxing</li>
-                    <li><i class="fas fa-check"></i> Personal Program</li>
                     <li><i class="fas fa-check"></i> Steam & Sauna</li>
                 </ul>
-                <a href="#registration" class="select-btn active">Select</a>
-            </div>
-
-            <div class="plan-box">
-                <h3>Steam Only</h3>
-                <div class="price">800 <span>ETB</span></div>
-                <ul>
-                    <li><i class="fas fa-check"></i> Premium Steam</li>
-                    <li><i class="fas fa-check"></i> Shower Access</li>
-                    <li><i class="fas fa-check"></i> Daily Entry</li>
-                </ul>
-                <a href="#registration" class="select-btn">Select</a>
+                <a href="#join" class="plan-link active">Select Plan</a>
             </div>
         </div>
     </section>
 
+    <!-- Registration Section (Ref: image_f277fc.jpg) -->
+    <section id="join" class="join-section">
+        <div class="form-container">
+            <h2>Join the <span>Family</span></h2>
+            <p>We will call you shortly after registration</p>
+            <form id="registrationForm">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="tel" id="phone" placeholder="Phone Number (09...)" required>
+                <select id="service">
+                    <option value="Monthly Gym">Monthly Gym</option>
+                    <option value="Pro Athlete">Pro Athlete</option>
+                    <option value="Steam Only">Steam Only</option>
+                </select>
+                <button type="submit">Confirm Registration</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content">
+            <i class="fas fa-check-circle"></i>
+            <h3>Successfully Registered!</h3>
+            <p>Our team will contact you soon.</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Hidden Admin Panel -->
+    <section id="adminPanel" style="display:none; padding: 50px 5%; background: #000;">
+        <h2 style="color: #fbbf24;">Member Database</h2>
+        <table id="dataTable" style="width:100%; border-collapse: collapse; margin-top:20px; color: white;">
+            <thead style="background: #fbbf24; color: #000;">
+                <tr><th>Name</th><th>Phone</th><th>Plan</th></tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+        <button onclick="clearData()" style="margin-top:20px; color: red; background: none; border: 1px solid red; padding: 5px 10px; cursor: pointer;">Clear Records</button>
+    </section>
+
+    <footer onclick="adminTrigger()">
+        <p>&copy; 2026 Life Line Fitness Lebu</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
