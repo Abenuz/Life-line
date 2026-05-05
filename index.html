@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Line Fitness Lebu | Pro System</title>
+    <title>Life Line Fitness Lebu | Pro</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Professional Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -19,60 +20,57 @@
 
     <header class="hero">
         <div class="hero-content">
-            <span class="badge">Lebu Branch - Gidami Center</span>
-            <h1>TRANSFORM <span>YOURSELF</span></h1>
-            <p>Premium Gym, Steam & Kickboxing Training</p>
-            <a href="#registration" class="btn-glow">Start Training Now</a>
+            <span class="badge">Gidami Business Center, Lebu</span>
+            <h1>LEVEL <span>UP</span></h1>
+            <p>Ethiopia's Premium Fitness Destination</p>
+            <a href="#registration" class="btn-glow">Register Now</a>
         </div>
     </header>
 
+    <!-- NEW: Membership Features -->
     <section id="plans">
-        <h2 class="section-title">Membership <span>Plans</span></h2>
+        <h2 class="section-title">Our <span>Services</span></h2>
         <div class="price-grid">
             <div class="price-card">
-                <h3>Gym Only</h3>
-                <div class="price">24/7 Access</div>
-                <ul>
-                    <li>Free Weights</li>
-                    <li>Cardio Zone</li>
-                    <li>Staff Assistance</li>
-                </ul>
+                <i class="fas fa-dumbbell service-icon"></i>
+                <h3>Gym Access</h3>
+                <p>Full use of cardio and weight zones with 24/7 support.</p>
             </div>
             <div class="price-card featured">
-                <div class="top-label">Popular</div>
-                <h3>All Access</h3>
-                <div class="price">Full Package</div>
-                <ul>
-                    <li>Gym & Kickboxing</li>
-                    <li>Unlimited Steam</li>
-                    <li>Personal Locker</li>
-                </ul>
+                <i class="fas fa-fire service-icon"></i>
+                <h3>Kickboxing</h3>
+                <p>Professional training sessions for all skill levels.</p>
+            </div>
+            <div class="price-card">
+                <i class="fas fa-hot-tub service-icon"></i>
+                <h3>Steam Room</h3>
+                <p>Relax and recover with our premium steam facilities.</p>
             </div>
         </div>
     </section>
 
     <section id="registration">
         <div class="container">
-            <h2>Join the <span>Family</span></h2>
+            <h2>Start Your <span>Journey</span></h2>
             <form id="regForm">
                 <div class="form-group">
-                    <label><i class="fas fa-user"></i> Full Name</label>
-                    <input type="text" id="name" placeholder="Abenezer Zerihun" required>
+                    <label>Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
-                    <label><i class="fas fa-mobile-alt"></i> Phone Number</label>
+                    <label>Phone Number</label>
                     <input type="tel" id="phone" placeholder="09..." required>
                 </div>
                 <div class="form-group">
-                    <label><i class="fas fa-dumbbell"></i> Service</label>
+                    <label>Preferred Service</label>
                     <select id="service">
-                        <option value="Gym Only">Gym Access Only</option>
+                        <option value="Gym Only">Gym Only</option>
                         <option value="Kickboxing">Kickboxing Training</option>
-                        <option value="Steam">Steam & Recovery</option>
+                        <option value="Steam">Steam Room</option>
                         <option value="Full Access">The All-In Package</option>
                     </select>
                 </div>
-                <button type="submit" class="btn">Confirm Registration</button>
+                <button type="submit" class="btn" id="submitBtn">Confirm Registration</button>
             </form>
         </div>
     </section>
@@ -82,13 +80,14 @@
         <div class="modal-content">
             <i class="fas fa-check-circle success-icon"></i>
             <h2>Thank You!</h2>
-            <p>Your registration is complete. Our team will call you shortly to finalize your membership.</p>
+            <p>Your registration is complete. Our team will <b>call you shortly</b> to finalize your membership.</p>
             <button onclick="closeModal()" class="btn">Got it!</button>
         </div>
     </div>
 
+    <!-- ADMIN SECTION -->
     <section id="admin">
-        <button onclick="toggleAdmin()" id="adminBtn" class="admin-access-btn">[ Admin Dashboard ]</button>
+        <button onclick="toggleAdmin()" id="adminBtn" class="admin-access-btn">[ Open Admin Panel ]</button>
         <div id="adminPanel" class="admin-panel" style="display:none;">
             <h2>Member Database</h2>
             <div class="table-scroll">
@@ -104,14 +103,10 @@
                     <tbody id="memberList"></tbody>
                 </table>
             </div>
-            <button onclick="clearData()" class="clear-btn">Clear Records</button>
+            <button onclick="clearData()" class="clear-btn">Erase All Records</button>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Life Line Fitness Lebu | Built for Strength</p>
-    </footer>
-
     <script src="script.js"></script>
 </body>
-</html>>
+</html>
