@@ -1,86 +1,50 @@
-/* --- 1. Global Reset --- */
+/* 1. Global Reset to kill the blue color */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none !important; /* Forces removal of blue underline */
+    text-decoration: none !important; /* Removes blue underline */
 }
 
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: 'Arial', sans-serif;
+    font-family: sans-serif;
 }
 
-/* --- 2. Header & Buttons --- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-}
-
+/* 2. Header Buttons - Fixes image_d98983.jpg */
 .header-buttons {
     display: flex;
     gap: 15px;
+    padding: 20px;
 }
 
-/* This fixes the blue text in your screenshot */
 .tiktok-btn, .call-btn {
-    background-color: #fbbf24; /* Your Gym Gold */
-    color: #000000 !important;   /* Forces text to be black, not blue */
+    background-color: #fbbf24 !important; /* Your Gold */
+    color: #000000 !important;           /* Forces Black Text */
     padding: 10px 20px;
     border-radius: 50px;
     font-weight: bold;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 8px;
-    transition: 0.3s ease;
+    border: none;
 }
 
 .tiktok-btn svg {
-    fill: #000000; /* Makes TikTok logo black */
+    fill: #000000 !important; /* Forces Icon Black */
 }
 
-.tiktok-btn:hover, .call-btn:hover {
-    background-color: #ffffff;
-    transform: scale(1.05);
-}
-
-/* --- 3. Facility Section --- */
-.facility-section {
-    text-align: center;
-    padding: 50px 5%;
-}
-
-.facility-section h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-}
-
-.facility-section h2 span {
-    color: #fbbf24;
-}
-
+/* 3. Gallery Grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    padding: 20px;
 }
 
 .gallery-item img {
     width: 100%;
     border-radius: 15px;
-    border: 2px solid #222;
-}
-
-/* --- 4. Pricing Section --- */
-.pricing-section {
-    text-align: center;
-    padding: 40px 0;
-}
-
-.pricing-section h2 span {
-    color: #fbbf24;
+    border: 2px solid #333;
 }
