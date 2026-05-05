@@ -6,16 +6,17 @@
     <title>Life Line Fitness Lebu | Pro</title>
     
     <!-- Tab Logo (Favicon) -->
-    <link rel="icon" type="image/png" href="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7339243455793037318~c5_100x100.jpeg?lk3s=a5d48078&nonce=29107&refresh_token=65686008b88d30e3be538749e75529f7&x-expires=1715000400&x-signature=8XzV6e4o%2F1z%2B5kZ%2F0l%2BzY%2Ba2V5Y%3D">
+    <link rel="icon" type="image/png" href="logo.png">
     
     <link rel="stylesheet" href="style.css">
-    <!-- Icons for TikTok and Phone -->
+    <!-- Font Awesome for TikTok and Phone Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav>
         <div class="logo-container">
-            <img src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7339243455793037318~c5_100x100.jpeg?lk3s=a5d48078&nonce=29107&refresh_token=65686008b88d30e3be538749e75529f7&x-expires=1715000400&x-signature=8XzV6e4o%2F1z%2B5kZ%2F0l%2BzY%2Ba2V5Y%3D" class="nav-logo" alt="Life Line Logo">
+            <!-- The 'onerror' ensures a gold logo appears even if your file is missing -->
+            <img src="logo.png" class="nav-logo" alt="Logo" onerror="this.src='https://ui-avatars.com/api/?name=L+L&background=fbbf24&color=000'">
             <div class="logo">LIFE LINE <span>FITNESS</span></div>
         </div>
         <div class="nav-links">
@@ -34,87 +35,59 @@
         <div class="hero-content">
             <span class="badge">Gidami Business Center, Lebu</span>
             <h1>LEVEL <span>UP</span></h1>
-            <p>Ethiopia's Premium Fitness Destination</p>
+            <p>Premium Gym & Kickboxing Training</p>
             <a href="#registration" class="btn-glow">Register Now</a>
         </div>
     </header>
 
-    <section id="plans">
-        <h2 class="section-title">Our <span>Services</span></h2>
-        <div class="price-grid">
-            <div class="price-card">
-                <i class="fas fa-dumbbell service-icon"></i>
-                <h3>Gym Access</h3>
-                <p>Full use of cardio and weight zones with 24/7 support.</p>
-            </div>
-            <div class="price-card featured">
-                <i class="fas fa-fire service-icon"></i>
-                <h3>Kickboxing</h3>
-                <p>Professional training sessions for all skill levels.</p>
-            </div>
-            <div class="price-card">
-                <i class="fas fa-hot-tub service-icon"></i>
-                <h3>Steam Room</h3>
-                <p>Relax and recover with our premium steam facilities.</p>
-            </div>
-        </div>
-    </section>
-
     <section id="registration">
         <div class="container">
-            <h2>Start Your <span>Journey</span></h2>
+            <h2>Join the <span>Family</span></h2>
             <form id="regForm">
                 <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" id="name" placeholder="Enter your name" required>
+                    <input type="text" id="name" placeholder="Abenezer Zerihun" required>
                 </div>
                 <div class="form-group">
                     <label>Phone Number</label>
                     <input type="tel" id="phone" placeholder="09..." required>
                 </div>
                 <div class="form-group">
-                    <label>Preferred Service</label>
+                    <label>Service</label>
                     <select id="service">
                         <option value="Gym Only">Gym Only</option>
-                        <option value="Kickboxing">Kickboxing Training</option>
-                        <option value="Steam">Steam Room</option>
-                        <option value="Full Access">The All-In Package</option>
+                        <option value="Kickboxing">Kickboxing</option>
+                        <option value="Full Access">All Access</option>
                     </select>
                 </div>
-                <button type="submit" class="btn" id="submitBtn">Confirm Registration</button>
+                <button type="submit" class="btn">Confirm Registration</button>
             </form>
         </div>
     </section>
 
-    <!-- Success Modal -->
+    <!-- Thank You Modal -->
     <div id="thankYouModal" class="modal">
         <div class="modal-content">
-            <i class="fas fa-check-circle success-icon" style="color: #22c55e; font-size: 3rem;"></i>
+            <i class="fas fa-check-circle" style="color: #fbbf24; font-size: 3rem; margin-bottom: 15px;"></i>
             <h2>Thank You!</h2>
-            <p>Your registration is complete. Our team will <b>call you shortly</b> to finalize your membership.</p>
+            <p>Your registration is complete. Our team will <b>call you shortly</b>.</p>
             <button onclick="closeModal()" class="btn">Got it!</button>
         </div>
     </div>
 
-    <!-- Admin Section -->
     <section id="admin">
-        <button onclick="toggleAdmin()" id="adminBtn" class="admin-access-btn">[ Open Admin Panel ]</button>
+        <button onclick="toggleAdmin()" id="adminBtn" class="admin-access-btn">[ Admin Dashboard ]</button>
         <div id="adminPanel" class="admin-panel" style="display:none;">
             <h2>Member Database</h2>
             <div class="table-scroll">
                 <table>
                     <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Service</th>
-                            <th>Date</th>
-                        </tr>
+                        <tr><th>Name</th><th>Phone</th><th>Service</th><th>Date</th></tr>
                     </thead>
                     <tbody id="memberList"></tbody>
                 </table>
             </div>
-            <button onclick="clearData()" class="clear-btn" style="margin-top:20px; background:#ff4444; color:white; padding:10px; border:none; border-radius:5px; cursor:pointer;">Erase All Records</button>
+            <button onclick="clearData()" style="background:#ff4444; color:white; border:none; padding:10px; margin-top:15px; border-radius:5px;">Clear All Records</button>
         </div>
     </section>
 
