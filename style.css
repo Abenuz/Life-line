@@ -1,40 +1,56 @@
 :root {
     --primary: #fbbf24;
+    --primary-glow: rgba(251, 191, 36, 0.5);
     --bg: #0a0a0a;
     --card: #141414;
     --text: #ffffff;
 }
 
-body { background: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; scroll-behavior: smooth; }
 
 nav { 
-    display: flex; justify-content: space-between; padding: 1rem 5%; 
-    background: #000; border-bottom: 1px solid #222; sticky: top;
+    display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; 
+    background: rgba(0,0,0,0.95); border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 1000;
 }
-
-.logo span { color: var(--primary); font-weight: bold; }
+.logo span { color: var(--primary); font-weight: 900; }
+.nav-links a { margin-right: 15px; color: white; text-decoration: none; font-size: 0.9rem; }
+.nav-phone { background: var(--primary); color: black; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; }
 
 .hero {
-    height: 40vh; display: flex; flex-direction: column; 
-    justify-content: center; align-items: center; 
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800');
-    background-size: cover;
+    height: 70vh; display: flex; text-align: center; justify-content: center; align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200');
+    background-size: cover; background-position: center;
+}
+.hero h1 { font-size: 3.5rem; margin: 10px 0; }
+.hero span { color: var(--primary); }
+.badge { background: var(--primary); color: black; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.7rem; }
+
+.btn-glow {
+    margin-top: 20px; padding: 15px 30px; background: var(--primary); color: black;
+    text-decoration: none; font-weight: bold; border-radius: 50px; display: inline-block;
+    box-shadow: 0 0 20px var(--primary-glow); transition: 0.3s;
 }
 
-.container { 
-    max-width: 500px; margin: 0 auto; background: var(--card); 
-    padding: 2rem; border-radius: 15px; border: 1px solid #333; 
-}
+.price-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 2rem; }
+.price-card { background: var(--card); padding: 2rem; border-radius: 15px; border: 1px solid #333; width: 280px; text-align: center; }
+.price-card.featured { border-color: var(--primary); position: relative; }
+.top-label { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--primary); color: black; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem; font-weight: bold; }
 
-.form-group { margin-bottom: 1rem; }
-label { display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px; }
-input, select { width: 100%; padding: 10px; background: #222; border: 1px solid #444; color: #fff; border-radius: 5px; }
+.container { max-width: 500px; margin: 0 auto; background: var(--card); padding: 2.5rem; border-radius: 20px; border: 1px solid #333; }
+.form-group { margin-bottom: 1.5rem; }
+label { display: block; font-size: 0.8rem; color: #888; margin-bottom: 8px; }
+input, select { width: 100%; padding: 12px; background: #222; border: 1px solid #444; color: #fff; border-radius: 8px; }
 
-.btn { width: 100%; padding: 12px; background: var(--primary); border: none; font-weight: bold; cursor: pointer; border-radius: 5px; }
+.btn { width: 100%; padding: 15px; background: var(--primary); border: none; font-weight: bold; cursor: pointer; border-radius: 8px; font-size: 1rem; }
 
-.admin-panel { margin-top: 2rem; padding: 1rem; border: 1px solid var(--primary); border-radius: 10px; }
-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-th { background: var(--primary); color: #000; padding: 10px; text-align: left; }
-td { padding: 10px; border-bottom: 1px solid #222; }
+/* Modal Styling */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+.modal-content { background: var(--card); margin: 20% auto; padding: 3rem; width: 80%; max-width: 400px; text-align: center; border-radius: 20px; border: 1px solid var(--primary); }
+.success-icon { font-size: 4rem; color: var(--primary); margin-bottom: 1rem; }
 
-.admin-access-btn { background: transparent; color: #333; border: none; width: 100%; cursor: pointer; padding: 20px; }
+.admin-panel { margin: 2rem 5%; background: #000; padding: 1.5rem; border-radius: 15px; border: 1px solid #222; }
+table { width: 100%; border-collapse: collapse; min-width: 500px; }
+th { background: var(--primary); color: black; padding: 12px; text-align: left; }
+td { padding: 12px; border-bottom: 1px solid #222; }
+.table-scroll { overflow-x: auto; }
+.admin-access-btn { width: 100%; color: #333; background: none; border: none; padding: 40px; cursor: pointer; }
