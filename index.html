@@ -21,15 +21,7 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <div class="location-pill">Gidami Business Center, Lebu</div>
-            <h1>LEVEL <span>UP</span></h1>
-            <p>Premium Gym & Kickboxing Training</p>
-            <a href="#register" class="cta-button">Register Now</a>
-        </div>
-    </header>
-
+    <!-- Plans Section with New Pricing -->
     <section id="plans" class="plans-section">
         <h2 class="title">Our <span>Plans</span></h2>
         <div class="plans-grid">
@@ -55,6 +47,7 @@
         </div>
     </section>
 
+    <!-- Registration Section -->
     <section id="register" class="reg-section">
         <div class="reg-card">
             <h2>Join the <span>Family</span></h2>
@@ -71,25 +64,25 @@
     </section>
 
     <!-- Admin Panel (Starts Hidden) -->
-    <section id="adminArea" class="admin-panel" style="display:none;">
-        <div class="admin-content">
-            <h3>Registered Members</h3>
-            <table id="memberTable">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Plan</th>
-                    </tr>
-                </thead>
-                <tbody id="memberList"></tbody>
-            </table>
-            <button onclick="clearLeads()" class="clear-btn">Clear All Data</button>
-            <button onclick="closeAdmin()" class="close-btn">Close Panel</button>
+    <div id="adminArea" class="admin-overlay" style="display:none;">
+        <div class="admin-box">
+            <h3>Member Database</h3>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Name</th><th>Phone</th><th>Plan</th></tr>
+                    </thead>
+                    <tbody id="memberList"></tbody>
+                </table>
+            </div>
+            <div class="admin-actions">
+                <button onclick="clearLeads()" class="clear-btn">Clear All</button>
+                <button onclick="closeAdmin()" class="close-btn">Close</button>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <footer id="adminTrigger">
+    <footer id="footerTrigger">
         <p>&copy; 2026 Life Line Fitness Lebu</p>
     </footer>
 
