@@ -4,93 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life Line Fitness Lebu | Pro</title>
-    
-    <!-- Tab Logo (Favicon) -->
-    <link rel="icon" type="image/png" href="logo.png">
-    
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for TikTok and Phone Icons -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Navigation Bar (Ref: image_f291e6.jpg) -->
     <nav>
-        <div class="logo-container">
-            <!-- The 'onerror' ensures a gold logo appears even if your file is missing -->
-            <img src="logo.png" class="nav-logo" alt="Logo" onerror="this.src='https://ui-avatars.com/api/?name=L+L&background=fbbf24&color=000'">
-            <div class="logo">LIFE LINE <span>FITNESS</span></div>
+        <div class="logo-area">
+            <div class="circle-logo">LL</div>
+            <div class="brand-text">LIFE LINE <span>FITNESS</span></div>
         </div>
         <div class="nav-links">
             <a href="#plans">Plans</a>
             <a href="#registration">Join</a>
-            <a href="https://www.tiktok.com/@life.line.fitness" target="_blank" class="nav-icon">
-                <i class="fab fa-tiktok"></i>
-            </a>
+            <a href="https://www.tiktok.com/@life.line.fitness" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
-        <a href="tel:0911182141" class="nav-phone">
-            <i class="fas fa-phone"></i> 0911182141
+        <a href="tel:0911182141" class="phone-btn">
+            <i class="fas fa-phone-alt"></i> 0911182141
         </a>
     </nav>
 
+    <!-- Hero Section -->
     <header class="hero">
-        <div class="hero-content">
-            <span class="badge">Gidami Business Center, Lebu</span>
+        <div class="hero-overlay">
+            <span class="location-tag">Gidami Business Center, Lebu</span>
             <h1>LEVEL <span>UP</span></h1>
             <p>Premium Gym & Kickboxing Training</p>
-            <a href="#registration" class="btn-glow">Register Now</a>
+            <a href="#registration" class="main-btn">Register Now</a>
         </div>
     </header>
 
-    <section id="registration">
-        <div class="container">
-            <h2>Join the <span>Family</span></h2>
-            <form id="regForm">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="name" placeholder="Abenezer Zerihun" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" id="phone" placeholder="09..." required>
-                </div>
-                <div class="form-group">
-                    <label>Service</label>
-                    <select id="service">
-                        <option value="Gym Only">Gym Only</option>
-                        <option value="Kickboxing">Kickboxing</option>
-                        <option value="Full Access">All Access</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Confirm Registration</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Thank You Modal -->
-    <div id="thankYouModal" class="modal">
-        <div class="modal-content">
-            <i class="fas fa-check-circle" style="color: #fbbf24; font-size: 3rem; margin-bottom: 15px;"></i>
-            <h2>Thank You!</h2>
-            <p>Your registration is complete. Our team will <b>call you shortly</b>.</p>
-            <button onclick="closeModal()" class="btn">Got it!</button>
-        </div>
-    </div>
-
-    <section id="admin">
-        <button onclick="toggleAdmin()" id="adminBtn" class="admin-access-btn">[ Admin Dashboard ]</button>
-        <div id="adminPanel" class="admin-panel" style="display:none;">
-            <h2>Member Database</h2>
-            <div class="table-scroll">
-                <table>
-                    <thead>
-                        <tr><th>Name</th><th>Phone</th><th>Service</th><th>Date</th></tr>
-                    </thead>
-                    <tbody id="memberList"></tbody>
-                </table>
+    <!-- Plans & Pricing Section -->
+    <section id="plans" class="plans">
+        <h2 class="title">Our <span>Plans</span></h2>
+        <div class="plan-container">
+            <div class="plan-box">
+                <h3>Monthly Gym</h3>
+                <div class="price">1,500 <span>ETB</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Full Gym Access</li>
+                    <li><i class="fas fa-check"></i> Locker Room</li>
+                    <li><i class="fas fa-check"></i> Cardio Training</li>
+                </ul>
+                <a href="#registration" class="select-btn">Select</a>
             </div>
-            <button onclick="clearData()" style="background:#ff4444; color:white; border:none; padding:10px; margin-top:15px; border-radius:5px;">Clear All Records</button>
+
+            <div class="plan-box featured">
+                <div class="ribbon">Best Value</div>
+                <h3>Pro Athlete</h3>
+                <div class="price">2,500 <span>ETB</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Gym + Kickboxing</li>
+                    <li><i class="fas fa-check"></i> Personal Program</li>
+                    <li><i class="fas fa-check"></i> Steam & Sauna</li>
+                </ul>
+                <a href="#registration" class="select-btn active">Select</a>
+            </div>
+
+            <div class="plan-box">
+                <h3>Steam Only</h3>
+                <div class="price">800 <span>ETB</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Premium Steam</li>
+                    <li><i class="fas fa-check"></i> Shower Access</li>
+                    <li><i class="fas fa-check"></i> Daily Entry</li>
+                </ul>
+                <a href="#registration" class="select-btn">Select</a>
+            </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
 </body>
 </html>
