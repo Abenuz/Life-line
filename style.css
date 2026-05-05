@@ -1,50 +1,91 @@
-/* 1. Global Reset to kill the blue color */
+/* 1. Global Reset - Fixes the blue text and underlines */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none !important; /* Removes blue underline */
+    text-decoration: none !important;
 }
 
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
-/* 2. Header Buttons - Fixes image_d98983.jpg */
+/* 2. Header & Buttons */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #000000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.logo span {
+    color: #fbbf24;
+}
+
 .header-buttons {
     display: flex;
     gap: 15px;
-    padding: 20px;
 }
 
+/* Forces buttons to be Gold with Black text */
 .tiktok-btn, .call-btn {
-    background-color: #fbbf24 !important; /* Your Gold */
-    color: #000000 !important;           /* Forces Black Text */
+    background-color: #fbbf24 !important;
+    color: #000000 !important;
     padding: 10px 20px;
     border-radius: 50px;
     font-weight: bold;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    border: none;
+    transition: 0.3s ease;
 }
 
 .tiktok-btn svg {
-    fill: #000000 !important; /* Forces Icon Black */
+    fill: #000000 !important;
 }
 
-/* 3. Gallery Grid */
+.tiktok-btn:hover, .call-btn:hover {
+    background-color: #ffffff !important;
+    transform: scale(1.05);
+}
+
+/* 3. Facility Gallery */
+.facility-section {
+    text-align: center;
+    padding: 50px 5%;
+}
+
+.facility-section h2 span {
+    color: #fbbf24;
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px;
+    margin-top: 30px;
 }
 
 .gallery-item img {
     width: 100%;
     border-radius: 15px;
     border: 2px solid #333;
+}
+
+/* 4. Pricing Section */
+.pricing-section {
+    text-align: center;
+    padding: 50px 5%;
+}
+
+.pricing-section h2 span {
+    color: #fbbf24;
 }
