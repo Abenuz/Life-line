@@ -4,25 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life Line Fitness Lebu | Pro</title>
+    
+    <!-- Tab Logo (Favicon) -->
+    <link rel="icon" type="image/png" href="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7339243455793037318~c5_100x100.jpeg?lk3s=a5d48078&nonce=29107&refresh_token=65686008b88d30e3be538749e75529f7&x-expires=1715000400&x-signature=8XzV6e4o%2F1z%2B5kZ%2F0l%2BzY%2Ba2V5Y%3D">
+    
     <link rel="stylesheet" href="style.css">
-    <!-- Professional Icons -->
+    <!-- Icons for TikTok and Phone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-<nav>
-    <div class="logo">LIFE LINE <span>FITNESS</span></div>
-    <div class="nav-links">
-        <a href="#plans">Plans</a>
-        <a href="#registration">Join</a>
-        <!-- TikTok Integration -->
-        <a href="https://www.tiktok.com/@life.line.fitness" target="_blank" class="nav-icon">
-            <i class="fab fa-tiktok"></i>
+    <nav>
+        <div class="logo-container">
+            <img src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7339243455793037318~c5_100x100.jpeg?lk3s=a5d48078&nonce=29107&refresh_token=65686008b88d30e3be538749e75529f7&x-expires=1715000400&x-signature=8XzV6e4o%2F1z%2B5kZ%2F0l%2BzY%2Ba2V5Y%3D" class="nav-logo" alt="Life Line Logo">
+            <div class="logo">LIFE LINE <span>FITNESS</span></div>
+        </div>
+        <div class="nav-links">
+            <a href="#plans">Plans</a>
+            <a href="#registration">Join</a>
+            <a href="https://www.tiktok.com/@life.line.fitness" target="_blank" class="nav-icon">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        <a href="tel:0911182141" class="nav-phone">
+            <i class="fas fa-phone"></i> 0911182141
         </a>
-    </div>
-    <a href="tel:0911182141" class="nav-phone">
-        <i class="fas fa-phone"></i> 0911182141
-    </a>
-</nav>
+    </nav>
 
     <header class="hero">
         <div class="hero-content">
@@ -33,7 +39,6 @@
         </div>
     </header>
 
-    <!-- NEW: Membership Features -->
     <section id="plans">
         <h2 class="section-title">Our <span>Services</span></h2>
         <div class="price-grid">
@@ -81,17 +86,17 @@
         </div>
     </section>
 
-    <!-- THANK YOU POPUP -->
+    <!-- Success Modal -->
     <div id="thankYouModal" class="modal">
         <div class="modal-content">
-            <i class="fas fa-check-circle success-icon"></i>
+            <i class="fas fa-check-circle success-icon" style="color: #22c55e; font-size: 3rem;"></i>
             <h2>Thank You!</h2>
             <p>Your registration is complete. Our team will <b>call you shortly</b> to finalize your membership.</p>
             <button onclick="closeModal()" class="btn">Got it!</button>
         </div>
     </div>
 
-    <!-- ADMIN SECTION -->
+    <!-- Admin Section -->
     <section id="admin">
         <button onclick="toggleAdmin()" id="adminBtn" class="admin-access-btn">[ Open Admin Panel ]</button>
         <div id="adminPanel" class="admin-panel" style="display:none;">
@@ -109,7 +114,7 @@
                     <tbody id="memberList"></tbody>
                 </table>
             </div>
-            <button onclick="clearData()" class="clear-btn">Erase All Records</button>
+            <button onclick="clearData()" class="clear-btn" style="margin-top:20px; background:#ff4444; color:white; padding:10px; border:none; border-radius:5px; cursor:pointer;">Erase All Records</button>
         </div>
     </section>
 
