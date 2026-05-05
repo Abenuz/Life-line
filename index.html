@@ -21,89 +21,90 @@
         </div>
     </nav>
 
-    <!-- TikTok Style Video Feed -->
-    <section class="tiktok-feed">
-        <div class="video-container">
-            <div class="video-card">
-                <div class="video-placeholder">
-                    <i class="fas fa-play"></i>
+    <!-- TikTok Feed Section -->
+    <section class="tiktok-section">
+        <div class="video-feed">
+            <div class="tiktok-card">
+                <div class="video-mock">
+                    <i class="fas fa-play-circle"></i>
                     <p>Workout Motivation</p>
                 </div>
-                <div class="video-sidebar">
-                    <div class="icon-group"><i class="fas fa-heart"></i><span>1.2k</span></div>
-                    <div class="icon-group"><i class="fas fa-comment"></i><span>45</span></div>
-                    <div class="icon-group"><i class="fas fa-share"></i></div>
+                <div class="side-actions">
+                    <div class="action"><i class="fas fa-heart"></i><span>1.2k</span></div>
+                    <div class="action"><i class="fas fa-comment-dots"></i><span>45</span></div>
+                    <div class="action"><i class="fas fa-share"></i></div>
                 </div>
-                <div class="video-info">
-                    <p class="user">@lifeline_fitness_lebu</p>
-                    <p class="desc">Level up your game at Gidami Business Center! #EthiopiaGym #Fitness</p>
+                <div class="video-meta">
+                    <p class="handle">@lifeline_fitness_lebu</p>
+                    <p class="caption">Level up your game at Gidami Business Center! #EthiopiaGym #Fitness</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gym Gallery -->
-    <section id="gallery" class="gym-gallery">
-        <h2 class="title">Our <span>Gym</span></h2>
+    <!-- Gym Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title">Our <span>Gym</span></h2>
         <div class="gallery-grid">
-            <div class="img-box" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=400')"></div>
-            <div class="img-box" style="background-image: url('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=400')"></div>
-            <div class="img-box" style="background-image: url('https://images.unsplash.com/photo-1571902258032-783cae1b30c6?q=80&w=400')"></div>
+            <div class="gym-img" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=500')"></div>
+            <div class="gym-img" style="background-image: url('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=500')"></div>
+            <div class="gym-img" style="background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=500')"></div>
+            <div class="gym-img" style="background-image: url('https://images.unsplash.com/photo-1571902258032-783cae1b30c6?q=80&w=500')"></div>
         </div>
     </section>
 
-    <!-- Plans Section -->
-    <section id="plans" class="plans-section">
-        <h2 class="title">Pricing <span>Plans</span></h2>
-        <div class="plans-grid">
+    <!-- Pricing Section -->
+    <section id="plans" class="pricing-section">
+        <h2 class="section-title">Pricing <span>Plans</span></h2>
+        <div class="plans-container">
             <div class="plan-card">
                 <h3>Monthly Gym</h3>
                 <div class="price">5,000 <span>ETB</span></div>
-                <a href="#register" class="select-btn">Join Now</a>
+                <a href="#register" class="btn-outline">Join Now</a>
             </div>
-            <div class="plan-card featured">
-                <div class="ribbon">Best Value</div>
+            <div class="plan-card highlight">
+                <div class="popular-tag">Best Value</div>
                 <h3>Pro Athlete</h3>
                 <div class="price">6,500 <span>ETB</span></div>
-                <a href="#register" class="select-btn active">Join Now</a>
+                <a href="#register" class="btn-fill">Join Now</a>
             </div>
         </div>
     </section>
 
-    <!-- Registration -->
-    <section id="register" class="reg-section">
-        <div class="reg-card">
+    <!-- Registration Form -->
+    <section id="register" class="form-section">
+        <div class="card-box">
             <h2>Join the <span>Family</span></h2>
-            <form id="regForm">
-                <input type="text" id="userName" placeholder="Full Name" required>
-                <input type="tel" id="userPhone" placeholder="Phone Number" required>
-                <select id="userPlan">
-                    <option value="Monthly (5000)">Monthly - 5,000 ETB</option>
-                    <option value="Pro (6500)">Pro - 6,500 ETB</option>
+            <form id="gymRegForm">
+                <input type="text" id="custName" placeholder="Full Name" required>
+                <input type="tel" id="custPhone" placeholder="Phone Number" required>
+                <select id="custPlan">
+                    <option value="Monthly Gym (5000)">Monthly Gym - 5,000 ETB</option>
+                    <option value="Pro Athlete (6500)">Pro Athlete - 6,500 ETB</option>
                 </select>
                 <button type="submit">Submit Registration</button>
             </form>
         </div>
     </section>
 
-    <!-- Fixed Admin Overlay -->
-    <div id="adminArea" class="admin-overlay" style="display:none;">
-        <div class="admin-box">
-            <h3>Member Database</h3>
-            <div class="table-scroll">
-                <table id="adminTable">
+    <!-- Admin Panel Overlay -->
+    <div id="adminPanel" class="admin-modal" style="display:none;">
+        <div class="admin-container">
+            <h3>Registered Members</h3>
+            <div class="scroll-box">
+                <table>
                     <thead><tr><th>Name</th><th>Phone</th><th>Plan</th></tr></thead>
-                    <tbody id="memberList"></tbody>
+                    <tbody id="adminData"></tbody>
                 </table>
             </div>
-            <div class="admin-actions">
-                <button onclick="clearLeads()" class="clear-btn">Delete All</button>
-                <button onclick="closeAdmin()" class="close-btn">Exit</button>
+            <div class="modal-btns">
+                <button onclick="clearData()" class="btn-danger">Delete All</button>
+                <button onclick="hideAdmin()" class="btn-close">Close</button>
             </div>
         </div>
     </div>
 
-    <footer id="footerTrigger">
+    <footer id="adminAccess">
         <p>&copy; 2026 Life Line Fitness Lebu</p>
     </footer>
 
