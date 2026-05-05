@@ -1,85 +1,78 @@
-/* General Styles */
 :root {
     --gold: #fbbf24;
     --dark: #0a0a0a;
-    --gray: #1a1a1a;
+    --card-bg: #141414;
     --white: #ffffff;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-body { background-color: var(--dark); color: var(--white); line-height: 1.6; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body { background: var(--dark); color: var(--white); scroll-behavior: smooth; }
 
-/* Navigation (Matching image_f291e6.jpg) */
+/* Navigation */
 nav {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 5%; background: rgba(0,0,0,0.9);
+    padding: 15px 5%; background: rgba(0,0,0,0.95);
     position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222;
 }
 
-.logo-area { display: flex; align-items: center; gap: 10px; }
-.circle-logo {
+.logo-group { display: flex; align-items: center; gap: 10px; }
+.logo-circle {
     width: 40px; height: 40px; background: var(--gold); color: #000;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-weight: bold; font-size: 14px;
+    font-weight: bold;
 }
 
-.brand-text { font-weight: bold; font-size: 1.2rem; }
-.brand-text span { color: var(--gold); }
+.logo-text { font-weight: bold; font-size: 1.1rem; }
+.logo-text span { color: var(--gold); }
 
 .nav-links { display: flex; gap: 20px; align-items: center; }
-.nav-links a { color: var(--white); text-decoration: none; font-weight: 500; }
-.nav-links a:hover { color: var(--gold); }
-
-.phone-btn {
-    background: var(--gold); color: #000; padding: 8px 18px;
-    border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 14px;
+.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; }
+.contact-btn {
+    background: var(--gold); color: #000; padding: 8px 15px;
+    border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.8rem;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
-    height: 60vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-    url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1000');
+    height: 60vh; background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+    url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000');
     background-size: cover; background-position: center;
     display: flex; align-items: center; justify-content: center; text-align: center;
 }
 
-.location-tag { color: var(--gold); border: 1px solid var(--gold); padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; }
-.hero h1 { font-size: 4rem; margin: 15px 0; letter-spacing: 2px; }
+.loc-badge { color: var(--gold); border: 1px solid var(--gold); padding: 4px 12px; border-radius: 15px; font-size: 0.7rem; }
+.hero h1 { font-size: 3.5rem; margin: 10px 0; }
 .hero h1 span { color: var(--gold); }
-.main-btn { background: var(--gold); color: #000; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; }
+.hero-btn { background: var(--gold); color: #000; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; }
 
-/* Plans Section */
-.plans { padding: 80px 5%; text-align: center; }
-.title { font-size: 2.5rem; margin-bottom: 40px; }
-.title span { color: var(--gold); }
-
-.plan-container {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px; max-width: 1200px; margin: 0 auto;
+/* Plans */
+.plans-container { padding: 60px 5%; text-align: center; }
+.plans-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
+.plan-card {
+    background: var(--card-bg); padding: 30px; border-radius: 15px;
+    width: 280px; border: 1px solid #333; position: relative;
 }
+.plan-card.featured { border: 1px solid var(--gold); }
+.ribbon { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 2px 10px; border-radius: 10px; font-size: 0.7rem; font-weight: bold; }
+.price { font-size: 2rem; font-weight: bold; margin: 15px 0; }
+.price span { font-size: 0.9rem; color: #888; }
+.plan-card ul { list-style: none; margin: 20px 0; text-align: left; font-size: 0.9rem; }
+.plan-card ul li { margin-bottom: 8px; }
+.plan-card ul li i { color: var(--gold); margin-right: 8px; }
+.plan-link { display: block; padding: 10px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; border-radius: 5px; font-weight: bold; }
+.plan-link.active { background: var(--gold); color: #000; }
 
-.plan-box {
-    background: var(--gray); padding: 40px; border-radius: 15px;
-    border: 1px solid #333; position: relative; transition: 0.3s;
-}
+/* Form */
+.join-section { padding: 60px 5%; background: #000; display: flex; justify-content: center; }
+.form-container { background: var(--card-bg); padding: 30px; border-radius: 15px; width: 100%; max-width: 400px; text-align: center; }
+.form-container h2 span { color: var(--gold); }
+input, select { width: 100%; padding: 12px; margin: 10px 0; background: #0a0a0a; border: 1px solid #333; color: #fff; border-radius: 5px; }
+form button { width: 100%; padding: 15px; background: var(--gold); border: none; font-weight: bold; border-radius: 5px; cursor: pointer; }
 
-.plan-box.featured { border: 2px solid var(--gold); scale: 1.05; }
-.ribbon {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    background: var(--gold); color: #000; padding: 4px 15px;
-    border-radius: 20px; font-size: 0.7rem; font-weight: bold;
-}
+/* Modal */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; }
+.modal-content { background: var(--card-bg); width: 85%; max-width: 350px; margin: 30% auto; padding: 30px; border-radius: 15px; text-align: center; border: 1px solid var(--gold); }
+.modal-content i { font-size: 3rem; color: var(--gold); margin-bottom: 15px; }
+.modal-content button { margin-top: 20px; background: var(--gold); border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; }
 
-.price { font-size: 2.2rem; font-weight: bold; margin: 20px 0; }
-.price span { font-size: 1rem; color: #888; }
-
-.plan-box ul { list-style: none; margin: 25px 0; text-align: left; }
-.plan-box li { margin-bottom: 10px; font-size: 0.9rem; color: #ccc; }
-.plan-box li i { color: var(--gold); margin-right: 8px; }
-
-.select-btn {
-    display: block; width: 100%; padding: 10px; border: 1px solid var(--gold);
-    color: var(--gold); text-decoration: none; border-radius: 8px; font-weight: bold;
-}
-
-.select-btn.active { background: var(--gold); color: #000; }
+footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #444; }
